@@ -154,7 +154,8 @@ mkdir -p /usr/local/hadoop/data/hdfs/namenode
 chown -R `whoami`:`whoami` /usr/local/hadoop/data/hdfs/namenode
 ```
 
-3.2 - Update hadoop-env.sh file
+3.2 - Configure hadoop-env.sh
+
 `vi /usr/local/hadoop/conf/hadoop-env.sh`
 
 ```
@@ -162,13 +163,69 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 ```
 
+3.3 - Configure core-site.xml
 
+`vi /usr/local/hadoop/conf/core-site.xml`
 
+```
+<property>
+<name>fs.default.name</name>
+<value>hdfs://node1.example.com:9000</value>
+</property>
 
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/usr/local/hadoop/data/hdfs/namenode</value>
+</property>
+```
 
+3.3 - Configure hdfs-site.xml
 
+`vi /usr/local/hadoop/conf/hdfs-site.xml`
 
+```
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+```
 
+3.4 - Configure mapred-site.xml
+
+`vi /usr/local/hadoop/conf/mapred-site.xml`
+
+```
+<property>
+<name>mapred.job.tracker</name>
+<value>master.example.com:9001</value>
+</property>
+```
+
+#### 4) Formate Namenode
+
+`hadoop namenode -format`
+
+> Look for Message ** * Namenode has been successfully formatted *  **
+
+> Verify data in namenode data directory
+
+### 5) Start Services
+
+5.1 - Start HDFS Services:
+
+`start-dfs.sh`
+
+5.2 - Start MR services
+
+`start-mapred.sh`
+
+### 6) Check what all services are running
+
+`jps`
+
+### 7) Verify through WebUI
+
+![alt text](https://drive.google.com/file/d/1ihucs832Cmg32PBWB0HEazd98fKYmY-Q/view?usp=sharing)
 
 
 
