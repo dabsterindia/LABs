@@ -118,3 +118,62 @@ sudo mv hadoop-1.2.1 /usr/local/hadoop
 
 sudo chown -R `whoami`:`whoami` /usr/local/hadoop
 ```
+
+Note:
+Incase given package (hadoop-1.2.1) is not available on the link, use below link and download any hadoop 1.x version
+https://archive.apache.org/dist/hadoop/core/
+
+### 2) Setup ENVIRONMENT Variables for Hadoop
+Edit bashrc file and past below contents at the end. (one per line):
+
+`vi ~/.bashrc`
+
+```
+export HADOOP_PREFIX=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_PREFIX/bin
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME
+```
+
+Execute bash to apply the changes:
+
+`exec bash`
+
+Verify:
+```
+echo $PATH
+
+jps
+```
+
+### 3) Configure Hadoop files
+3.1 - Create Directories for Namenode metadata
+
+```
+mkdir -p /usr/local/hadoop/data/hdfs/namenode
+chown -R `whoami`:`whoami` /usr/local/hadoop/data/hdfs/namenode
+```
+
+3.2 - Update hadoop-env.sh file
+`vi /usr/local/hadoop/conf/hadoop-env.sh`
+
+```
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
