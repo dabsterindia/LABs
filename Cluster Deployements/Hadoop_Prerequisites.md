@@ -11,9 +11,9 @@ default options
 
 `cat id_rsa.pub >> authorized_keys `
 
-   iii. The logic behind password-less ssh is, (a) User public key (id_rsa.pub) should be available in "authorized_keys" (b) this "authorized_keys" must be available on all other nodes. 
+   iii. The logic behind password-less ssh is, (a) User public key (_id_rsa.pub_) should be available in "_authorized_keys_" (b) this "_authorized_keys_" must be available on all other nodes. 
 
-For GCP follow below process which will automatically add "id_rsa.pub" to "authorized_keys" on all available nodes
+For GCP follow below process which will automatically add "_id_rsa.pub_" to "_authorized_keys_" on all available nodes
 
 `cat ~/.ssh/id_rsa.pub`
 
