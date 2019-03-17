@@ -197,10 +197,10 @@ dn3
 #### 6.8. Copy updated hadoop configuration files to all other nodes
 
 ```
-cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml snn:`pwd`
-cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn1:`pwd`
-cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn2:`pwd`
-cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn3:`pwd`
+cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml snn:`pwd`
+cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn1:`pwd`
+cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn2:`pwd`
+cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn3:`pwd`
 ```
 
 ## Step 7. Format Namenode
