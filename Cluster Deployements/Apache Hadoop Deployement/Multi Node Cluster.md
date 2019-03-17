@@ -205,6 +205,13 @@ cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-
 
 `hdfs namenode -format`
 
+> Look for Message ___Namenode has been successfully formatted___
+
+> Verify data in namenode data directory
+
+NOTE : 
+__DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
+
 ## Step 8. Start Services
 #### Start HDFS Services:
 `start-dfs.sh`
