@@ -2,16 +2,16 @@
 
 ## 1. Configure Password-Less SSH (Perform this step only on node1)
      
-   1.1 Generate ssh keys (Private & Public) using ssh-keygen command and press enter till it’s get complete for
+   i. Generate ssh keys (Private & Public) using ssh-keygen command and press enter till it’s get complete for
 default options
 
 `ssh-keygen `
 
-   1.2. Copy public key contents to authorized_keys
+   ii. Copy public key contents to authorized_keys
 
 `cat id_rsa.pub >> authorized_keys `
 
-   1.3. The logic behind password-less ssh is, (a) User public key (id_rsa.pub) should be available in "authorized_keys" (b) this "authorized_keys" must be available on all other nodes. 
+   iii. The logic behind password-less ssh is, (a) User public key (id_rsa.pub) should be available in "authorized_keys" (b) this "authorized_keys" must be available on all other nodes. 
 
 For GCP follow below process which will automatically add "id_rsa.pub" to "authorized_keys" on all available nodes
 
@@ -19,7 +19,7 @@ For GCP follow below process which will automatically add "id_rsa.pub" to "autho
 
 Copy public key contents and past it under SSH keys (GCP --> Compute Engine --> Metadata --> SSH Keys --> Edit --> Add new item)
 
-   1.4. VERIFY:
+   iv. VERIFY:
 
 You should be able to perform ssh to other nodes withoud password.
 
@@ -46,7 +46,7 @@ yum install -y ntp
 chkconfig ntpd on
 ```
 
-## 4) Turn off iptables
+## 4. Turn off iptables
 RHEL6:
 
 ```
@@ -62,26 +62,26 @@ service firewalld stop
 ```
 
 
-## 5) Disable SELinux
+## 5. Disable SELinux
 ```
 sudo -i
 setenforce 0
 sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinux/config
 ```
 
-## 6) Configure Swappiness
+## 6. Configure Swappiness
 ```
 sysctl vm.swappiness=10
 echo 'vm.swappiness=10' >> /etc/sysctl.conf
 ```
 
-## 7) Configure THP (transparent_hugepage)
+## 7. Configure THP (transparent_hugepage)
 
 ```
 echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
 echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
 ```
-## 8) Configure UMASK
+## 8. Configure UMASK
 Chek current umask
 `umask`
 
