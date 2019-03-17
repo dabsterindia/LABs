@@ -2,7 +2,7 @@
 
 ## Step 1. Preparing the Environment (Prerequisites)
 
-Follow [Named Link](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployements/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
+Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployements/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
 
 ## Step 2. Install JAVA
 ```
@@ -13,7 +13,7 @@ sudo apt-get install openjdk-7-jdk -y
 
 ## Step 3. Download & Configure Hadoop
 
-#### i. Download Hadoop tarball, untar it and move it to /usr/local/hadoop
+#### 3.1. Download Hadoop tarball, untar it and move it to /usr/local/hadoop
 
 ```
 wget https://archive.apache.org/dist/hadoop/core/hadoop-1.2.1/hadoop-1.2.1.tar.gz
@@ -29,7 +29,7 @@ Note:
 Incase given package (hadoop-1.2.1) is not available on the link, use below link and download any hadoop 1.x version
 https://archive.apache.org/dist/hadoop/core/
 
-#### ii. Setup ENVIRONMENT Variables for Hadoop
+#### 3.2. Setup ENVIRONMENT Variables for Hadoop
 Edit bashrc file and past below contents at the end. (one per line):
 
 `vi ~/.bashrc`
@@ -52,15 +52,15 @@ echo $PATH
 jps
 ```
 
-### 3) Configure Hadoop files
-3.1 - Create Directories for Namenode metadata
+## 4. Configure Hadoop files
+#### 4.1 - Create Directories for Namenode metadata
 
 ```
 mkdir -p /usr/local/hadoop/data/hdfs/namenode
 chown -R `whoami`:`whoami` /usr/local/hadoop/data/hdfs/namenode
 ```
 
-3.2 - Configure hadoop-env.sh
+#### 4.2 - Configure hadoop-env.sh
 
 `vi /usr/local/hadoop/conf/hadoop-env.sh`
 
@@ -69,7 +69,7 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 ```
 
-3.3 - Configure core-site.xml
+#### 4.3 - Configure core-site.xml
 
 `vi /usr/local/hadoop/conf/core-site.xml`
 
@@ -85,7 +85,7 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 </property>
 ```
 
-3.3 - Configure hdfs-site.xml
+#### 4.3 - Configure hdfs-site.xml
 
 `vi /usr/local/hadoop/conf/hdfs-site.xml`
 
@@ -96,7 +96,7 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 </property>
 ```
 
-3.4 - Configure mapred-site.xml
+#### 4.4 - Configure mapred-site.xml
 
 `vi /usr/local/hadoop/conf/mapred-site.xml`
 
@@ -107,7 +107,7 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 </property>
 ```
 
-#### 4) Formate Namenode
+## 5. Formate Namenode
 
 `hadoop namenode -format`
 
@@ -115,21 +115,21 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 > Verify data in namenode data directory
 
-### 5) Start Services
+## 6. Start Services
 
-5.1 - Start HDFS Services:
+#### 6.1 - Start HDFS Services:
 
 ```start-dfs.sh```
 
-5.2 - Start MR services
+#### 6.2 - Start MR services
 
 ```start-mapred.sh```
 
-### 6) Check what all services are running
+## 7. Check what all services are running
 
 ```jps```
 
-### 7) Verify through WebUI
+## 8. Verify through WebUI
 
 | Component | URL Default | Port |
 | --------- |-------------|------|
@@ -139,9 +139,10 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 | SecondaryNameNode | http://snn_host:port/ | 50090 |
 | DataNode | http://dn_host:port/ | 50075 |
 
-### 8) Test HDFS
+## 9. Test HDFS
 
-### 9) TEST MapReduce
+
+## 10. TEST MapReduce
 
 
 
