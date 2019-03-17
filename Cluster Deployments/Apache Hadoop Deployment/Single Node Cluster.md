@@ -1,4 +1,4 @@
-# Single Node Apache Hadoop - Cluster Deployement on Google Cloud Platform (GCP)
+# Single Node Apache Hadoop - Cluster Deployment on Google Cloud Platform (GCP)
 
 ___Environment Details:___
 
