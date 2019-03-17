@@ -228,17 +228,14 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 | Component | URL Default | Port |
 | --------- |-------------|------|
 | Namenode | http://nn_host:port/ | 50070 |
-| --------- | ------------| ------ |
 | JobTracker | http://jt_host:port/ | 50030 |
-|---------  |--------- |--------- |
 | TaskTracker | http://tt_host:port/ | 50060 |
-|--------- |--------- |--------- |
 | SecondaryNameNode | http://snn_host:port/ | 50090 |
-|--------- |--------- |--------- |
 | DataNode | http://dn_host:port/ | 50075 |
-|--------- |--------- |--------- |
 
+### 8) Test HDFS
 
+### 9) TEST MapReduce
 
 
 
