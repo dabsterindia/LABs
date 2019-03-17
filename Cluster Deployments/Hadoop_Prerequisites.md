@@ -1,4 +1,4 @@
-# Preparing the Environment for Hadoop Deployement:
+# Preparing the Environment for Hadoop Deployment:
 
 ## 1. Configure Password-Less SSH (Perform this step only on node1)
      
