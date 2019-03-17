@@ -1,5 +1,13 @@
 # Single Node Apache Hadoop - Cluster Deployement on Google Cloud Platform (GCP)
 
+___Environment Details:___
+1 | 2
+------------- | -------------
+Operating System | Centos - 6.x)
+Java Vesion | Java - OpenJDK 7
+Hadoop Version | Hadoop-1.2.1
+
+
 ## Step 1. Preparing the Environment (Prerequisites)
 
 Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployements/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
