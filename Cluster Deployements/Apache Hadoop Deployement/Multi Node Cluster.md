@@ -1,6 +1,6 @@
 # Multi Node Apache Hadoop - Cluster Deployement on Google Cloud Platform (GCP)
 
-Environment Details:
+___Environment Details:___
 
 1 | 2
 ------------- | -------------
@@ -23,7 +23,7 @@ Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/C
 
 `sudo apt-get install –y dsh`
 
-#### ii. Update machine.list file with all host entries. Comment out the localhost.
+#### ii. Update machine.list file with all host entries. Comment out localhost.
 
 `sudo vi /etc/dsh/machines.list`
 
