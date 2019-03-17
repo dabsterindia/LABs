@@ -111,12 +111,12 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 `hadoop namenode -format`
 
-NOTE : __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
-
-
 > Look for Message ___Namenode has been successfully formatted___
 
 > Verify data in namenode data directory
+
+NOTE : 
+__DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
 
 ## 6. Start Services
 
