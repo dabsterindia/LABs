@@ -4,7 +4,7 @@ ___Environment Details:___
 
 1 | 2
 ------------- | -------------
-Operating System | Centos - 6.x)
+Operating System | Centos - 6.x
 Java Vesion | Java - OpenJDK 7
 Hadoop Version | Hadoop-1.2.1
 
