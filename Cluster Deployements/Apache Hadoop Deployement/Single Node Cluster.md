@@ -1,6 +1,7 @@
 # Single Node Apache Hadoop - Cluster Deployement on Google Cloud Platform (GCP)
 
 ___Environment Details:___
+
 1 | 2
 ------------- | -------------
 Operating System | Centos - 6.x)
