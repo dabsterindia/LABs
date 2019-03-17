@@ -111,7 +111,7 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 `hadoop namenode -format`
 
-> Look for Message ** * Namenode has been successfully formatted *  **
+> Look for Message ___Namenode has been successfully formatted___
 
 > Verify data in namenode data directory
 
@@ -141,10 +141,89 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 ## 9. Test HDFS
 
+#### i) Run “ls” on hdfs
+
+`hadoop fs -ls /`
+
+#### ii) Create a directory
+
+`hadoop fs -mkdir /test`
+
+#### iii) Run hdfs report to get the detailed information about the Hadoop filesystem
+
+`hadoop dfsadmin -report`
+
+#### iv) Check all Hadoop filesystem commands
+
+`hadoop fs`
+
+#### v) Check all hdfs admin commands
+`hadoop dfsadmin`
+
 
 ## 10. TEST MapReduce
+### Run Sample MapReduce Jobs
+
+#### i) PI
+
+`hadoop jar /usr/local/hadoop/hadoop-examples-*.jar pi 10 100000` 
 
 
+#### ii) Word Count
+##### Create File on local
 
+`vi /tmp/word_example.txt`
+
+
+#####  Add some random text
+```
+The Apache Hadoop software library is a framework that allows for the distributed processing of
+large data sets across clusters of computers using simple programming models. It is designed to
+scale up from single servers to thousands of machines, each offering local computation and
+storage. Rather than rely on hardware to deliver high-availability, the library itself is
+designed to detect and handle failures at the application layer, so delivering a highly-
+available service on top of a cluster of computers, each of which may be prone to failures.
+Hadoop Common: The common utilities that support the other Hadoop modules.
+Hadoop Distributed File System - HDFS: A distributed file system that provides high-throughput
+access to application data.
+Hadoop YARN: A framework for job scheduling and cluster resource management
+Hadoop MapReduce: A YARN-based system for parallel processing of large data sets
+Ambari: A web-based tool for provisioning, managing, and monitoring Apache Hadoop clusters which
+includes support for Hadoop HDFS, Hadoop MapReduce, Hive, HCatalog, HBase, ZooKeeper, Oozie, Pig
+and Sqoop. Ambari also provides a dashboard for viewing cluster health such as heatmaps and
+ability to view MapReduce, Pig and Hive applications visually along with features to diagnose
+their performance characteristics in a user-friendly manner
+```
+
+##### Create dir on hdfs and Load example file
+```
+hadoop fs -mkdir –p /user/hdfs/sample_jobs/input
+hadoop fs -put /tmp/word_example.txt /user/hdfs/sample_jobs/input/
+```
+
+##### Verify whether file is uploaded
+
+`hadoop fs -cat /user/hdfs/sample_jobs/input/word*`
+
+##### Run word count job
+
+`hadoop jar /usr/local/hadoop/hadoop-examples-*.jar wordcount /user/hdfs/sample_jobs/input/
+/user/hdfs/sample_jobs/output`
+
+___You can monitor the status of this mapreduce jobs on JobTracker Web Interface___ (http://jt_host:port )
+
+##### Check output (CLI):
+
+```
+hadoop fs -ls /user/hdfs/sample_jobs/output/
+hadoop fs -cat /user/hdfs/sample_jobs/output/part-*
+```
+
+
+##### Check output (Namenode WebUI)
+a. Open Namenode WebUI http://nn_host:port/
+b. Click “Utilities” &gt; “Browse the file System”
+c. Navigate to the output directory (/user/hdfs/sample_jobs/output)
+d. Click part-r-000* file
 
 
