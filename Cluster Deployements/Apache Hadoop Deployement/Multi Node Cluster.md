@@ -102,21 +102,22 @@ exec bash
 #### 6.1. Create directory for Namenode and datanode
 
 ```
-dsh -a mkdir -p /usr/local/hadoop/data/hdfs/datanode
 mkdir -p /usr/local/hadoop/data/hdfs/namenode
+dsh -a mkdir -p /usr/local/hadoop/data/hdfs/datanode
 dsh -a sudo mkdir /var/log/hadoop/
 dsh -a sudo chown `whoami`:`whoami` -R /var/log/hadoop
 ```
 
-#### 6.2. Update Hadoop-env.sh
+#### 6.2. Configure hadoop-env.sh
 
 ```
 echo export JAVA_HOME=/usr/lib/jvm/java-8-oracle >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 echo export HADOOP_LOG_DIR=/var/log/hadoop/ >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
-Update core-site.xml
 ```
 
-#### 6.3. sudo vi /usr/local/hadoop/etc/hadoop/core-site.xml
+#### 6.3. Configure core-site.xml
+
+`sudo vi /usr/local/hadoop/etc/hadoop/core-site.xml`
 
 ```
 <property>
@@ -125,7 +126,7 @@ Update core-site.xml
 </property>
 ```
 
-#### 6.4. Update hdfs-site.xml
+#### 6.4. Configure hdfs-site.xml
 
 `sudo vi /usr/local/hadoop/etc/hadoop/hdfs-site.xml`
 
@@ -151,7 +152,7 @@ Update core-site.xml
 </property>
 ```
 
-### 6.5. Update yarn-site.xml
+### 6.5. Configure yarn-site.xml
 
 `sudo vi /usr/local/hadoop/etc/hadoop/yarn-site.xml`
 
@@ -167,7 +168,7 @@ Update core-site.xml
 </property>
 ```
 
-#### 6.6. Update mapred-site.xml
+#### 6.6. Configure mapred-site.xml
 
 `cp /usr/local/hadoop/etc/hadoop/mapred-site.xml.template /usr/local/hadoop/etc/hadoop/mapred-site.xml`
 
