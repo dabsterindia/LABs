@@ -4,7 +4,7 @@ ___Environment Details:___
 
 1 | 2
 ------------- | -------------
-Operating System | Ubuntu 14.04 (For RHEL Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployements/Hadoop_Prerequisites.md "Hadoop Prerequisites") article)
+Operating System | Ubuntu 14.04
 Java Vesion | Java 8 Oracle
 Hadoop Version | Hadoop-2.7.4
 
@@ -15,7 +15,7 @@ Hadoop Version | Hadoop-2.7.4
 #### iii. Verify firewall status, it must be disabled
 
 #### For RHEL/Centos:
-Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployements/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
+Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployments/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
 
 
 ## Step 2. Install dsh and Update machine.list file
