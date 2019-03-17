@@ -213,15 +213,15 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 5.1 - Start HDFS Services:
 
-`start-dfs.sh`
+```start-dfs.sh```
 
 5.2 - Start MR services
 
-`start-mapred.sh`
+```start-mapred.sh```
 
 ### 6) Check what all services are running
 
-`jps`
+```jps```
 
 ### 7) Verify through WebUI
 
