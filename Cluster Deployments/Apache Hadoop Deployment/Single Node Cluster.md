@@ -11,7 +11,7 @@ Hadoop Version | Hadoop-1.2.1
 
 ## Step 1. Preparing the Environment (Prerequisites)
 
-Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployements/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
+Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployments/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
 
 ## Step 2. Install JAVA
 ```
