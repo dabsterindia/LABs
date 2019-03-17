@@ -111,6 +111,9 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 `hadoop namenode -format`
 
+NOTE : __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
+
+
 > Look for Message ___Namenode has been successfully formatted___
 
 > Verify data in namenode data directory
@@ -221,9 +224,13 @@ hadoop fs -cat /user/hdfs/sample_jobs/output/part-*
 
 
 ##### Check output (Namenode WebUI)
+
 a. Open Namenode WebUI http://nn_host:port/
+
 b. Click “Utilities” &gt; “Browse the file System”
+
 c. Navigate to the output directory (/user/hdfs/sample_jobs/output)
+
 d. Click part-r-000* file
 
 
