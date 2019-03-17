@@ -10,7 +10,7 @@ Hadoop Version | Hadoop-2.7.4
 
 ## Step 1. Preparing the Environment (Prerequisites)
 #### FOR UBUNTU:
-#### i. Configuer `/etc/hosts` file
+#### i. Configure `/etc/hosts` file
 #### ii. Configure passwordless ssh
 #### iii. Verify firewall status, it must be disabled
 
@@ -42,13 +42,11 @@ dn3
 
 ## Step 3. Install JAVA 8 on all nodes
 
-#### 3.1. To add oracle Java repositories, we need to download python-software-properties. Install it using
-below commands
+#### 3.1. To add oracle Java repositories, we need to download python-software-properties. Install it using below commands
 
 `dsh -a sudo apt-get install -y python-software-properties debconf-utils`
 
-#### 3.2. Add Oracle’s PPA(Personal Package Archive) to your list of sources so that Ubuntu knows where
-to check for the updates.
+#### 3.2. Add Oracle’s PPA(Personal Package Archive) to your list of sources so that Ubuntu knows where to check for the updates.
 
 `dsh -a sudo add-apt-repository -y ppa:webupd8team/java`
 
@@ -90,7 +88,10 @@ export YARN_HOME=$HADOOP_HOME
 
 #### 5.2. Execute bash to apply the changes
 
-`dsh -a exec bash`
+```
+dsh -a exec bash
+exec bash
+```
 
 #### iii. Verify whether JAVA_HOME and HADOOP_HOME is copied to $PATH Variable
 
@@ -192,7 +193,7 @@ dn2
 dn3
 ```
 
-#### 6.8. Copy Hadoop conf files to other nodes
+#### 6.8. Copy updated hadoop configuration files to all other nodes
 
 ```
 cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml snn:`pwd`
@@ -212,17 +213,19 @@ cd /usr/local/hadoop/etc/hadoop &amp;&amp; scp hadoop-env.sh core-site.xml hdfs-
 NOTE : 
 __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
 
-## Step 8. Start Services
+
+## Step 8. Start Hadoop Services
+
 #### Start HDFS Services:
 `start-dfs.sh`
 
 #### Start YARN Services:
 `start-yarn.sh`
 
-#### Start MR- JobHistory Server:
+#### Start MR-JobHistory Server:
 `$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver`
 
-Check whether all services are up and running:
+#### Check whether all services are up and running:
 
 `dsh -a "hostname;jps;echo "------------""`
 
@@ -239,11 +242,11 @@ DataNode | http://dn_host:port/ | 50075
 ## Step 9. Test Hadoop
 
 ### 9.1 Check HDFS commands
-Run hdfs report
+#### Run hdfs report
 
 `hdfs dfsadmin -report`
 
-Check Yarn status through command
+#### Check Yarn status through command
 `yarn node -list`
 
 ### 9.2 Run Sample MR Jobs
