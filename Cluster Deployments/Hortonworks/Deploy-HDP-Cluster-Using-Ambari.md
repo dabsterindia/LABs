@@ -1,4 +1,4 @@
-# Hortonworks Cluster Deployement - Using public/online repositories (i.e. Repos those are available on the Internet)
+# Hortonworks Cluster Deployement - Using public/online repositories
 
 
 ___Environment Details:___
