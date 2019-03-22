@@ -141,11 +141,9 @@ Ambari runs a python scripts to read filesystem configs and put values according
 Review assignments & make sure everything is correct and go ahead for cluster __Deploy__'ment
 
 ### 3.1 : Install, Start and Test
-Ambari will install all required packages to approriate nodes.
+Ambari will install all required packages on nodes.
 
 Its fun to read ambari operation logs.
-
-Yes It is :)
 
 Go ahead and see operations to get more idea about __How does Ambari install hadoop services__
 
