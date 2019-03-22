@@ -3,8 +3,9 @@
 
 ___Environment Details:___
 
-Ambari | 2.6.2.2
+Column 1 | Column 2
 ------------- | -------------
+Ambari | 2.6.2.2
 HDP | 2.6.5
 Operating System | Centos 6.x
 Platform | Google Cloud Platform
