@@ -1,12 +1,6 @@
 # Set Up SSL for Ambari
 
-
-References:
-https://www.sslshopper.com/article-most-common-openssl-commands.html
-https://www.sslshopper.com/article-most-common-java-keytool-keystore-commands.html
-
-https://support.ssl.com/Knowledgebase/Article/View/19/0/der-vs-crt-vs-cer-vs-pem-certificates-and-how-to-convert-them
-
+______________________________________________________________________________________________________________________________
 
 ## Step 1. Log into to Ambari Server node
 
@@ -118,4 +112,6 @@ Adjusting ambari-server permissions and ownership...
 ![alt text](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/ambari-server%20SSL%20UI-%20Self%20Signed.png)
       
 
+## Step 9. Configure Ambari truststore
 
+Follow ---------- article to setup ambari truststore
