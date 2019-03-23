@@ -2,7 +2,7 @@
 
 
 You must configure the Truststore for Ambari and add required certificates if:
-  1) You have Set Up SSL for Ambari 
+  1) You have configured SSL for Ambari 
   2) You are using LDAPS to sync users from AD
   3) You are using SSL for HDP services
 
