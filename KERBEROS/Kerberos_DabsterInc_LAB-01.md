@@ -75,9 +75,45 @@ Your fine krb5.conf should look similar to this:
 
 ## Step 4. Setup KDC database
 
+```
+kdb5_util create -s
 
+```
 ## Step 5. Start Kerberos services
 
+```
+service krb5kdc start
+service kadmin start
+
+chkconfig krb5kdc on
+chkconfig kadmin on
+
+```
+
+## Step 6. Create KDC admin principal
+
+```
+kadmin.local -q "addprinc admin/admin"
+
+```
+
+## Step 7. (Optinal) Testing
+
+```
+kinit admin/admin
+klist
+```
+
+```
+kadmin admin/admin
+
+```
+
+```
+kadmin> listprincs
+kadmin> exit
+
+```
 
 
 
