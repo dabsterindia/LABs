@@ -19,10 +19,9 @@ export wserver=$(hostname -f)
 echo $wserver
 ```
 
-## Step 4. For CA signed certificates, skip this step and start from Step 5
+## Step 4. For Self-Signed Certificates follow these steps to generate new certificate:
 
-For Self-Signed Certificates follow these steps to generate new certificate:
-If you want to create a temporary self-signed certificate, use this as an example:
+##### Note : _For CA signed certificates, skip this step and start from Step 5_
 
 #### 4.1 : Generate a new private key and Certificate Signing Request
 ```
