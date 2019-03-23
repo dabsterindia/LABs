@@ -60,7 +60,7 @@ cp /var/tmp/$wserver.key /etc/ambari-server/conf/certs/
 ls -lrt /etc/ambari-server/conf/certs/
 ```
 
-## Step 6. (Optional) verify the 
+## Step 6. (Optional) Verify Certificate information 
 If you need to check the information within a Certificate, CSR or Private Key, use these commands.
 
 `openssl x509 -in /etc/ambari-server/conf/certs/$wserver.crt -text -noout`
@@ -100,7 +100,10 @@ Adjusting ambari-server permissions and ownership...
 ```
 
 #### 7.2 : Start ambari server
-`ambari-server start`
+```
+ambari-server start
+
+```
 
 
 ## Step 8. Login Ambari server over https protocol & 8443 port
@@ -108,7 +111,12 @@ Adjusting ambari-server permissions and ownership...
 
 ![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/ambari-server%20SSL%20UI-%20Self%20Signed.png)
       
+## Step 9. (Optional) Two way SSL Between Ambari Server and Ambari Agents
+```
+echo 'security.server.two_way_ssl = true' >> /etc/ambari-server/conf/ambari.properties
+ambari-server restart
+```
 
-## Step 9. Configure Ambari truststore
+## Step 10. Configure Ambari truststore
 
 Follow ---------- article to setup ambari truststore
