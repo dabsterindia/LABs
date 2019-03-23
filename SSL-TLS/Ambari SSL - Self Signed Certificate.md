@@ -119,4 +119,4 @@ ambari-server restart
 
 ## Step 10. Configure Ambari truststore
 
-Follow ---------- article to setup ambari truststore
+Follow [THIS](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/Set%20Up%20Truststore%20for%20Ambari%20Server.md) article to setup ambari truststore
