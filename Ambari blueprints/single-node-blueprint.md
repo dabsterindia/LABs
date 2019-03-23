@@ -144,7 +144,7 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinu
 }
 
 ```
-_Don't forget to change the hostname :)
+_Don't forget to change the hostname :)_
 
 #### Step 2.4. Post the cluster to the Ambari Server to provision the cluster (Create HDP Cluster)
 
@@ -155,7 +155,7 @@ _Don't forget to change the hostname :)
 
 ## Step 3. Login Ambari UI
 
-http://<ambari-server>:8080/
+`http://<ambari-server>:8080/`
   
 
 ##### Optionally You can Check the status of cluster installation through Amabri API as follows
