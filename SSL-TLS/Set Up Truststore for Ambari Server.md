@@ -1,4 +1,4 @@
-# Truststore for Ambari Server
+# Setup Truststore for Ambari Server
 
 
 You must configure the Truststore for Ambari and add required certificates if:
