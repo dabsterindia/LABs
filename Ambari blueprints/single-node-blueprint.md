@@ -3,6 +3,16 @@
 Note:
 I have used Ambari-2.7.3 & HDP-3.1. Kinldy change respective repos to deploy different versions as per your requirement
 
+## Step 0. Pre-requisites
+```
+sudo -i
+systemctl disable firewalld
+service firewalld stop
+
+setenforce 0
+sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinux/config
+
+```
 
 ## Step 1. Prepare Ambari Server and Agents
 
@@ -17,11 +27,11 @@ ambari-server start
 
 
 yum install ambari-agent -y
+ambari-agent reset $(hostname -f)
 ambari-agent start
 
-
-
-Install Ambari Server & Ambari Agent And Register Ambari Agent with Ambari Server
+cat /etc/ambari-agent/conf/ambari-agent.ini | grep -i 'hostname' -B1
+```
 
 ## Step 2. Create Two Files as follows and add the hosts and hdp services and their components in it.
 
