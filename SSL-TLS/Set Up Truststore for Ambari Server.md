@@ -48,7 +48,7 @@ __Do you see any security Vulnerability here???__
 Yes!!! the password of your truststore is configured in plain text.
 
 
-__Execute `ambari-server setup-security` and select option [2] to Encrypt passwords stored in ambari.properties__: [Ref](https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.2.2/bk_ambari-security/content/optional_encrypt_database_and_ldap_passwords.html).
+Execute `ambari-server setup-security` and select option [2] to Encrypt passwords stored in ambari.properties file: [Ref](https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.2.2/bk_ambari-security/content/optional_encrypt_database_and_ldap_passwords.html)
 
 
 
