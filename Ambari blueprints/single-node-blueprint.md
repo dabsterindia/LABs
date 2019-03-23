@@ -144,6 +144,8 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinu
 }
 
 ```
+_Don't forget to change the hostname :)
+
 #### Step 2.4. Post the cluster to the Ambari Server to provision the cluster (Create HDP Cluster)
 
 ```
