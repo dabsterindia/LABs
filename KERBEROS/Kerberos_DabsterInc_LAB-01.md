@@ -115,7 +115,28 @@ kadmin> exit
 
 ```
 
+```
+# kadmin.local
+kadmin.local: listprincs
+kadmin.local: addprinc user1@MIT.DABSTERINC.COM
+kadmin.local: addprinc HTTP/kdcmaster.dabsterinc.com@MIT.DABSTERINC.COM
+kadmin.local: addprinc --randkey  mytestservice/kdcmaster.dabsterinc.com@MIT.DABSTERINC.COM
 
+kadmin.local: ktadd -kt /var/tmp/mytestservice.service.keytab  mytestservice/kdcmaster.dabsterinc.com@MIT.DABSTERINC.COM
 
+kadmin.local: exit
+```
+
+```
+kinit  HTTP/kdcmaster.dabsterinc.com
+klist
+kdestroy
+klist
+
+kinit -kt /var/tmp/mytestservice.service.keytab  mytestservice/kdcmaster.dabsterinc.com
+klist
+kdestroy
+klist
+```
 
 
