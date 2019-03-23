@@ -30,13 +30,21 @@ Choose one of the following options:
   [4] Setup truststore.
   [5] Import certificate to truststore.
 ===========================================================================
-Enter choice, (1-5): *4*
-Do you want to configure a truststore [y/n] (y)? *y*
-TrustStore type [jks/jceks/pkcs12] (jks): *jks*
+Enter choice, (1-5): 4
+Do you want to configure a truststore [y/n] (y)? y
+TrustStore type [jks/jceks/pkcs12] (jks): jks
 Path to TrustStore file : /etc/ambari-server/conf/ambari-server-truststore.jks
 Password for TrustStore:
 Re-enter password:
 Ambari Server 'setup-security' completed successfully.
 ```
 
-## Step 3. 
+## Step 3. (Optinal) Verify truststore entries in ambari server configs (ambari.properties)
+
+grep -i 'truststore' /etc/ambari-server/conf/ambari.properties
+
+_you can see password of your truststore is configured in plain text, you can encrypt this entry using [this](https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.2.2/bk_ambari-security/content/optional_encrypt_database_and_ldap_passwords.html).
+
+## Step 4. Restart ambari server
+
+`ambari-server restart`
