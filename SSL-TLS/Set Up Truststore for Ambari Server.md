@@ -41,9 +41,14 @@ Ambari Server 'setup-security' completed successfully.
 
 ## Step 3. (Optinal) Verify truststore entries in ambari server configs (ambari.properties)
 
-grep -i 'truststore' /etc/ambari-server/conf/ambari.properties
+`grep -i 'truststore' /etc/ambari-server/conf/ambari.properties`
 
-_you can see password of your truststore is configured in plain text, you can encrypt this entry using [this](https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.2.2/bk_ambari-security/content/optional_encrypt_database_and_ldap_passwords.html).
+__Do you see any security Vulnerability here???__
+
+Yes!!! the password of your truststore is configured in plain text, you can encrypt this entry using this [DOC](https://docs.hortonworks.com/HDPDocuments/Ambari-2.6.2.2/bk_ambari-security/content/optional_encrypt_database_and_ldap_passwords.html).
+
+OR execute `ambari-server setup-security` and select option [2] to Encrypt passwords stored in ambari.properties
+
 
 ## Step 4. Restart ambari server
 
