@@ -114,7 +114,8 @@ Adjusting ambari-server permissions and ownership...
 
 ## Step 8. Login Ambari server over https protocol & 8443 port
 
-https://hostname:8443
 
+![alt text](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/ambari-server%20SSL%20UI-%20Self%20Signed.png)
+      
 
 
