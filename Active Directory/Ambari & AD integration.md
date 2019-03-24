@@ -78,7 +78,7 @@ group1,group2,group3
 ## Step 3. Sync specific users & groups from AD
 
 ```
-ambari-server sync-ldap
+ambari-server sync-ldap --users /var/tmp/users.txt --groups /var/tmp/groups.txt
 
 ```
 
