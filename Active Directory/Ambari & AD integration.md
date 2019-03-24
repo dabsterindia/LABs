@@ -14,9 +14,9 @@ ___AD Details:___
 
 Column 1 | Column 2
 ------------- | -------------
-Hostname = hadoopad.australia-southeast1-b.c.silent-base-227511.internal
-Base DN | DC=HWX,DC=COM
-BindDN | CN=hdpadmin,OU=Users,OU=UAT,OU=BigData,OU=hadoop,DC=HWX,DC=COM
+Hostname | hadoopad.australia-southeast1-b.c.silent-base-227511.internal
+Base DN | DC=DABSTERINC,DC=COM
+BindDN | CN=hdpadmin,OU=Users,OU=UAT,OU=BigData,OU=hadoop,DC=DABSTERINC,DC=COM
 BindDN Password | Dabster@1
 
 
@@ -25,8 +25,10 @@ BindDN Password | Dabster@1
 
 ```
 # ldapsearch  -x -H ldaps://hadoopad.australia-southeast1-b.c.silent-base-227511.internal:3269 \
--D "CN=hdpadmin,OU=Users,OU=UAT,OU=BigData,OU=hadoop,DC=HWX,DC=COM" -w "Dabster@1" \
--b "OU=UAT,OU=BigData,OU=hadoop,DC=HWX,DC=COM"  -v
+-D "CN=hdpadmin,OU=Users,OU=UAT,OU=BigData,OU=hadoop,DC=DABSTERINC,DC=COM" -w "Dabster@1" \
+-b "OU=UAT,OU=BigData,OU=hadoop,DC=DABSTERINC,DC=COM"  -v > ldapsearch_result.out
+
+# less ldapsearch_result.out
 ```
 
 ## Step 1. Setup LDAP for Ambari
@@ -50,13 +52,13 @@ Group object class (group):  group
 Group name attribute (cn):  cn
 Group member attribute (member):  member
 Distinguished name attribute (distinguishedName):  distinguishedName
-Search Base (dc=ambari,dc=apache,dc=org):  OU=UAT,OU=BigData,OU=hadoop,DC=HWX,DC=COM
+Search Base (dc=ambari,dc=apache,dc=org):  OU=UAT,OU=BigData,OU=hadoop,DC=DABSTERINC,DC=COM
 Referral method [follow/ignore] (follow):  ignore
 Bind anonymously [true/false] (false):  false
 Handling behavior for username collisions [convert/skip] for LDAP sync (skip):  skip
 Force lower-case user names [true/false]: false
 Results from LDAP are paginated when requested [true/false]: true
-ambari.ldap.connectivity.bind_dn: CN=hdpadmin,OU=Users,OU=UAT,OU=BigData,OU=hadoop,DC=HWX,DC=COM
+ambari.ldap.connectivity.bind_dn: CN=hdpadmin,OU=Users,OU=UAT,OU=BigData,OU=hadoop,DC=DABSTERINC,DC=COM
 ambari.ldap.connectivity.bind_password: *****
 Save settings [y/n] (y)? y
 Saving LDAP properties...
@@ -65,12 +67,13 @@ Ambari Server 'setup-ldap' completed successfully.
 ```
 
 ## Step 2. Create two files and add AD usersnames & groupnames
+```
 # cat /var/tmp/users.txt
 user1,user2,user3
 
 # cat /var/tmp/groups.txt
 group1,group2,group3
-
+```
 
 ## Step 3. Sync specific users & groups from AD
 
