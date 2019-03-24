@@ -109,7 +109,7 @@ ambari-server start
 ## Step 8. Login Ambari server over https protocol & 8443 port
 
 
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/ambari-server%20SSL%20UI-%20Self%20Signed.png)
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/ambari-server%20SSL%20UI-%20Self%20Signed.png)
       
 ## Step 9. (Optional) Two way SSL Between Ambari Server and Ambari Agents
 ```
