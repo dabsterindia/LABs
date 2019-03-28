@@ -35,7 +35,7 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinu
 #### 1.2. Install & setup Ambari server
 ```
 # yum install ambari-server -y
-# ambari-server setup
+# ambari-server setup -s
 # ambari-server start
 ```
 
