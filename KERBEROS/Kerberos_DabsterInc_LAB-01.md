@@ -20,6 +20,8 @@ yum install krb5-server krb5-libs krb5-workstation -y
 
 ```
 sed -i 's/EXAMPLE.COM/MIT.DABSTERINC.COM/g' /var/kerberos/krb5kdc/kdc.conf
+sed -i.bkp '/{/a max_renewable_life = 7d 0h 0m 0s'  /var/kerberos/krb5kdc/kdc.conf
+
 echo '*/admin@MIT.DABSTERINC.COM	  *' > /var/kerberos/krb5kdc/kadm5.acl
 ```
 
