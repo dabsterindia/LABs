@@ -33,7 +33,7 @@ cat /var/kerberos/krb5kdc/kadm5.acl
 ## Step 3. Configure krb5.conf
 
 ```
-sed -i 's/#//g'  /etc/krb5.conf
+sed -i.bkp 's/#//g'  /etc/krb5.conf
 sed -i 's/EXAMPLE.COM/MIT.DABSTERINC.COM/g'  /etc/krb5.conf
 sed -i 's/example.com/dabsterinc.com/g'  /etc/krb5.conf
 
