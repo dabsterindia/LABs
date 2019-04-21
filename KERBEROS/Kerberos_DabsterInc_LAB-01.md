@@ -16,7 +16,7 @@ yum install krb5-server krb5-libs krb5-workstation -y
 
 ```
 
-## Step 2. Configure server specif files [kdc.conf](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/kdc_conf.html) & [kadm5.acl](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/kadm5_acl.html)
+## Step 2. Configure server specific files [kdc.conf](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/kdc_conf.html) & [kadm5.acl](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/kadm5_acl.html)
 
 ```
 sed -i 's/EXAMPLE.COM/MIT.DABSTERINC.COM/g' /var/kerberos/krb5kdc/kdc.conf
@@ -75,7 +75,7 @@ Your fine krb5.conf should look similar to this:
 ```
 
 
-## Step 4. Setup KDC database
+## Step 4. Create KDC database
 
 ```
 kdb5_util create -s
