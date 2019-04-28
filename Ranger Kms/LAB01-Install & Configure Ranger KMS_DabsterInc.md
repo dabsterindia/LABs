@@ -1,5 +1,7 @@
 # Install and Configure Ranger KMS
 
+Reference:
+https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_security/content/ranger-kms-admin-guide.html
 
 ## Pre-requisites (Optional)
 If you do not have database admin credentials, create a database, db user and grant him required privileges.
