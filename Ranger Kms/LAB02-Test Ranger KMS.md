@@ -1,5 +1,7 @@
 # How to use Ranger KMS
 
+## ___Goal: To create HDFS encryption zone for an end-user 'dab01'.__
+
 ### Hadoop KMS commands
 `$ hadoop key`
 
