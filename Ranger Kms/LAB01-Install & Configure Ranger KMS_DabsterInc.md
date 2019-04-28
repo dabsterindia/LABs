@@ -16,19 +16,19 @@ If you do not have database admin credentials, create a database, db user and gr
 ```
 # mysql
 
-mysql> create database ranger;
+mysql> create database rangerkms;
 ```
 
 #### 3) Create db user & grant permissions
 ```
-create user 'ranger'@'%' identified by 'ranger';
-grant all privileges on ranger.* to 'ranger'@'%';
+create user 'rangerkms'@'%' identified by 'rangerkms';
+grant all privileges on rangerkms.* to 'rangerkms'@'%';
 
-create user 'ranger'@'localhost' identified by 'ranger';
-grant all privileges on ranger.* to 'ranger'@'localhost';
+create user 'rangerkms'@'localhost' identified by 'rangerkms';
+grant all privileges on rangerkms.* to 'rangerkms'@'localhost';
 
-create user 'ranger'@'kms-master.dabsterinc.com' identified by 'ranger';
-grant all privileges on ranger.* to 'ranger'@'kms-master.dabsterinc.com';
+create user 'rangerkms'@'kms-master.dabsterinc.com' identified by 'rangerkms';
+grant all privileges on rangerkms.* to 'rangerkms'@'kms-master.dabsterinc.com';
 
 flush privileges;
 ```
