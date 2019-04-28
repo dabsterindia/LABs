@@ -113,4 +113,4 @@ $ hdfs dfsadmin -report
 
 ## Restart Required Services
 
-## Follow Ranger KMS LAB TEST to test whether kms is functioning as expected
+## Follow [Names Link] (https://github.com/dabsterindia/LABs/blob/master/Ranger%20Kms/LAB02-Test%20Ranger%20KMS.md "Ranger KMS LAB TEST") to test whether kms is functioning as expected
