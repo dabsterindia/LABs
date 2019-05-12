@@ -84,6 +84,7 @@ reconnection_retries = 3
 
 # service sssd start
 # id -a <AD-User>
+# getent passwd <AD-User>
 ```
 
 #### Step 5: Once verified, Configure PAM to allow AD users to login:
