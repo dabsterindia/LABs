@@ -32,9 +32,13 @@ description = DABSTERINC.COM
 min_id = 1000
 id_provider = ldap
 auth_provider = ldap
+# auth_provider = krb5
 ldap_schema = rfc2307bis
 cache_credentials = true
- 
+
+# krb5_server = adserver.dabsterinc.com
+# krb5_realm = DABSTERINC.COM
+
 ###Update the AD server and other details ###
  
 ldap_search_base = OU=hadoop,DC=DABSTERINC,DC=COM
