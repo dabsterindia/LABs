@@ -1,29 +1,22 @@
-# Install and configure SSSD on RHEL/CetOS Systems
+# Install and configure SSSD on RHEL/CentOS Systems
 
+One of the best and Recommended solution to pull users from AD/LDAP is to use tools like SSSD/Centrify/NSLCD/Winbind/SAMBA etc.
 
-## One of the best and Recommended solution to pull users from AD/LDAP is to use tools like SSSD/Centrify/NSLCD/Winbind/SAMBA etc.
-
-
-
-### Follow below steps to setup sssd on Linux to get user info from AD using LDAP provider
-
+Follow below steps to setup sssd on Linux to get user info from AD using LDAP provider
 
 #### Step 1: Install required sssd and openldap packages:
 
 ```
 # yum install sssd sssd-clients -y
-
 ```
 
 ```
 # yum install openldap  openldap-clients
-
 ```
 
 #### Step 2: Configured sssd.conf with below config:
 ```
 #vi /etc/sssd/sssd.conf
-
 ```
 
 ```
@@ -80,7 +73,7 @@ reconnection_retries = 3
 
 #### Step 3: Import SSL certs of AD server to the cacerts db under /etc/openldap/certs:
 ```
-# echo | openssl s_client -connect adserver.asia-southeast1-b.c.x-plateau-236613.internal:636 2>&1 | sed --quiet '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /var/tmp/ad.crt
+# echo | openssl s_client -connect adserver.dabsterinc.com:636 2>&1 | sed --quiet '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /var/tmp/ad.crt
 # cd /etc/openldap/certs
 # certutil -A -d . -n "AD cert" -t "C,," -i /var/tmp/ad.crt
 ```
@@ -96,7 +89,6 @@ reconnection_retries = 3
 #### Step 5: Once verified, Configure PAM to allow AD users to login:
 ```
 # vi /etc/pam.d/sshd
-
 ```
 ```
 #%PAM-1.0
@@ -123,8 +115,8 @@ session    include      postlogin
 ```
 
 ```
-#yum install authconfig
-#authconfig --enablesssdauth --update
+# yum install authconfig
+# authconfig --enablesssdauth --update
 ```
 
 Login to the host with AD user account and verify the access to node. 
