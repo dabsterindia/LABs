@@ -1,9 +1,8 @@
-# Add users and groups in OpenLdap Server
+# Most Useful commands
 
 
 ## ADD Users:
 
-### Create User ldif file to add new user
 ```
 # vi user.ldif
 ```
@@ -27,7 +26,6 @@ shadowMax: 99999
 shadowWarning: 7
 ```
 
-### Add user1
 ```
 # ldapadd -x -H ldap://localhost:389 -D cn=Manager,dc=dabsterinc,dc=com -W -f user.ldif
 ```
@@ -86,7 +84,7 @@ gidNumber: 678
 ```
 
 
-## Add users to a group:
+## ADD Users to a Group:
 ```
 # vi addusertogroup.ldif
 ```
@@ -113,14 +111,29 @@ memberuid: john
 # ldapmodify -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f addusertogroup.ldif
 ```
 
+## ADD Organizational Unit (OU)
+```
+# vi newOU.ldif
+```
+
+```
+dn: ou=Dev,ou=Hadoop,dc=dabsterinc,dc=com
+objectClass: organizationalUnit
+ou: kerberos
+description: kerberos principals OU
+```
+
+```
+# ldapadd -x -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -f newOU.ldif
+```
 
 ### ldap Search
 ```
-ldapsearch -x cn=user1 -b dc=dabsterinc,dc=com
+# ldapsearch -x cn=user1 -b dc=dabsterinc,dc=com
 ```
 ```
-ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com
+# ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com
 ```
 ```
-ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com cn=john
+# ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com cn=john
 ```
