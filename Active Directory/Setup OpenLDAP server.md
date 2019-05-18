@@ -87,7 +87,7 @@ olcAccess: {2}to * by dn="cn=Manager,dc=dabsterinc,dc=com" write by * read
 
 ##### 6.3 - Send the configuration to the LDAP server
 ```
-ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif 
+[root@dabsterinc ~]# ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif 
 ```
 
 ##### 6.4 - Create base domain ldif file
