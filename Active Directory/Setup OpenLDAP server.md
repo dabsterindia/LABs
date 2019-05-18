@@ -192,13 +192,13 @@ ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f gansari.ldif -w dabster123!
 
 # Set Password
 
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user1,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user2,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user3,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jason,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=john,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jassi,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=gansari,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user1,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user2,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user3,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jason,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=john,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jassi,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=gansari,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
 ```
 
 ### ldap Search
@@ -210,5 +210,53 @@ ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w
 ```
 ```
 ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com cn=john
+```
+
+## ADD GROUP
+
+#### Create LDIF file for New Group
+```
+# vi group1.ldif
+```
+
+```
+dn: cn=hd-admins,ou=Hadoop,dc=dabsterinc,dc=com
+objectClass: top
+objectClass: posixGroup
+gidNumber: 678
+```
+
+```
+# ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f group1.ldif
+```
+
+
+## Add an existing user to a group:
+```
+# vi addusertogroup.ldif
+```
+
+```
+dn: cn=hd-admins,ou=Hadoop,dc=dabsterinc,dc=com
+changetype: modify
+add: memberuid
+memberuid: user1
+memberuid: john
+```
+
+```
+# ldapmodify -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f addusertogroup.ldif
+```
+
+### 2. 
+`vi group2.ldif`
+```
+dn: cn=hd-dev,ou=Hadoop,dc=dabsterinc,dc=com
+objectClass: top
+objectClass: posixGroup
+gidNumber: 678
+```
+```
+# ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f group2.ldif
 ```
 
