@@ -46,7 +46,7 @@ Alias /ldapadmin /usr/share/phpldapadmin/htdocs
   </IfModule>
 </Directory>
 ```
-#### b)Configure the phpLDAPadmin
+#### b) Configure the phpLDAPadmin
 ```
 # vi /etc/phpldapadmin/config.php
 ```
