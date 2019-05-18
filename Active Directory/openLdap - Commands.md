@@ -127,6 +127,11 @@ description: kerberos principals OU
 # ldapadd -x -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -f newOU.ldif
 ```
 
+## Delete Entry
+```
+ldapdelete -W -D "cn=Manager,dc=hortonworks,dc=com" "uid=john,ou=People,dc=hortonworks,dc=com"
+```
+
 ### ldap Search
 ```
 # ldapsearch -x cn=user1 -b dc=dabsterinc,dc=com
