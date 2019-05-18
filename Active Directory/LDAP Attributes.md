@@ -1,7 +1,7 @@
-# LDAP Attributes
+# Attribute Details needed to configure any application with LDAP
 
 
-| LDAP Attributes  | openldap | AD | 
+| LDAP Attributes  | openLDAP | Active Directory | 
 | ------------- | ------------- | ----------|
 | LDAP Server Host  | openldap.dabsterinc.com  |  ad.dabsterinc.com |
 | LDPP Server port  | 389 | 389, 636  |
