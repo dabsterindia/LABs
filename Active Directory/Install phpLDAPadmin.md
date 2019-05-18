@@ -56,7 +56,7 @@ $servers->setValue('server','host','127.0.0.1');
 ```
 _Line __332__ will define your domain details, change it appropriately._
 ```
-$servers->setValue('login','bind_id','cn=ldapadmin,dc=hortonworks,dc=com');
+$servers->setValue('login','bind_id','cn=Manager,dc=dabsterinc,dc=com');
 ```
 
 _The password hashing algorithm set should be ssha. So change line __388__ appropriately:_
