@@ -140,3 +140,6 @@ description: organizationalUnit for BigData & Hadoop
 
 ## ADD Users and Groups
 
+[Follow this link to add users and groups](https://github.com/dabsterindia/LABs/blob/master/Active%20Directory/openLdap%20-%20Commands.md "Most Useful commands in openLdap")
+
+
