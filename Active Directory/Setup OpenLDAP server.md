@@ -80,7 +80,7 @@ dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 add: olcAccess
 olcAccess: {0}to attrs=userPassword,shadowLastChange by
-  dn="cn=Manager,dc=hortonworks,dc=com" write by anonymous auth by self write by * none
+  dn="cn=Manager,dc=dabsterinc,dc=com" write by anonymous auth by self write by * none
 olcAccess: {1}to dn.base="" by * read
 olcAccess: {2}to * by dn="cn=Manager,dc=dabsterinc,dc=com" write by * read
 ```
@@ -93,7 +93,9 @@ ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
 ##### 6.4 - Create base domain ldif file
 ```
 [root@dabsterinc ~]# vi basedomain.ldif
-++++++++++++++++++++++++++++++++++++++++++++++++
+```
+
+```
 dn: dc=dabsterinc,dc=com
 objectClass: top
 objectClass: dcObject
