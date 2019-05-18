@@ -183,22 +183,22 @@ sed -i s/user1/jassi/g jassi.ldif
 sed -i s/user1/gansari/g gansari.ldif
 
 # Add User
-ldapadd -x -D "cn=ldapadmin,dc=dabsterinc,dc=com" -f user2.ldif -w dabster123!
-ldapadd -x -D "cn=ldapadmin,dc=dabsterinc,dc=com" -f user3.ldif -w dabster123!
-ldapadd -x -D "cn=ldapadmin,dc=dabsterinc,dc=com" -f jason.ldif -w dabster123!
-ldapadd -x -D "cn=ldapadmin,dc=dabsterinc,dc=com" -f john.ldif -w dabster123!
-ldapadd -x -D "cn=ldapadmin,dc=dabsterinc,dc=com" -f jassi.ldif -w dabster123!
-ldapadd -x -D "cn=ldapadmin,dc=dabsterinc,dc=com" -f gansari.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f user2.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f user3.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f jason.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f john.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f jassi.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f gansari.ldif -w dabster123!
 
 # Set Password
 
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=user1,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=user2,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=user3,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=jason,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=john,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=jassi,ou=People,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=gansari,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user1,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user2,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user3,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jason,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=john,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jassi,ou=People,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=gansari,ou=People,dc=dabsterinc,dc=com" -w dabster123!
 ```
 
 ### ldap Search
@@ -206,8 +206,9 @@ ldappasswd -s Welcome@1 -D "cn=ldapadmin,dc=dabsterinc,dc=com" -x "uid=gansari,o
 ldapsearch -x cn=user1 -b dc=dabsterinc,dc=com
 ```
 ```
-ldapsearch -x -H ldap://ldap.dabsterinc.com:389 -D cn=Manager,dc=dabsterinc,dc=com -w 'hadoop' -b dc=hortonworks,dc=com
+ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com
 ```
 ```
-ldapsearch -x -H ldap://ldap.dabsterinc.com:389 -D cn=Manager,dc=dabsterinc,dc=com -w 'hadoop' -b dc=hortonworks,dc=com cn=john
+ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com cn=john
 ```
+
