@@ -1,4 +1,4 @@
-# Attribute Details needed to configure any application with LDAP
+# Attributes needed to configure any application with LDAP
 
 
 | LDAP Attributes  | openLDAP | Active Directory | 
