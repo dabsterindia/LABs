@@ -4,7 +4,7 @@
 | LDAP Attributes  | openLDAP | Active Directory | 
 | ------------- | ------------- | ----------|
 | LDAP Server Host  | openldap.dabsterinc.com  |  ad.dabsterinc.com |
-| LDPP Server port  | 389 | 389, 636  |
+| LDAP Server port  | 389 | 389, 636  |
 |  User Object Class | posixAccount | user | 
 | Username Attribute | uid | sAMAccountName |
 | Group Object Class | posixGroup | group | 
