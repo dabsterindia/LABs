@@ -140,6 +140,7 @@ description: organizationalUnit for BigData & Hadoop
 
 ## ADD Users and Groups
 
-[Follow this link to add users and groups](https://github.com/dabsterindia/LABs/blob/master/Active%20Directory/openLdap%20-%20Commands.md "Most Useful commands in openLdap")
+[Add users and groups trough CLI](https://github.com/dabsterindia/LABs/blob/master/Active%20Directory/openLdap%20-%20Commands.md "Most Useful commands in openLdap")
 
 
+[Insytall and Setup phpLDAPAdmin] (https://github.com/dabsterindia/LABs/blob/master/Active%20Directory/Install%20phpLDAPadmin.md)
