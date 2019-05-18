@@ -82,3 +82,5 @@ _Save and Exit
 URL : http://(serverIP)/phpldapadmin
 
 
+
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/phpldapadmin.png)
