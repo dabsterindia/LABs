@@ -1,4 +1,6 @@
-# Install & test apache httpd
+# Install & Enable SSL on Apache httpd server
+
+## Part I: Install httpd webserver
 
 ### Install httpd package
 ```
@@ -33,7 +35,7 @@ vi /etc/phpldapadmin/config.php
 ![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/httpd-test-webpage.png)
 
 
-# Setup SSL on Apache httpd server
+## Part II: Setup SSL on Apache httpd server
 
 ### Install required packages
 ```
