@@ -3,7 +3,7 @@
 
 ## Step 1. Log into to Ambari Server node
 
-`ssh ambari.server.hostname`
+```ssh ambari.server.hostname```
 
 
 ## Step 2. Create a directory to store certificates
