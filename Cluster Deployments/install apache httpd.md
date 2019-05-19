@@ -30,3 +30,4 @@ vi /etc/phpldapadmin/config.php
 
 ### Access the test web page from client PC with web browser. Following page is shown.
 
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/httpd-test-webpage.png)
