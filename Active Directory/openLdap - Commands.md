@@ -80,7 +80,7 @@ gidNumber: 678
 ```
 
 ```
-# ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f group1.ldif
+# ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f groupCreate.ldif
 ```
 
 
