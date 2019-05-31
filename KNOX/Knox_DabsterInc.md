@@ -21,7 +21,7 @@ _Ambari > Knox > Service Action > Start DemoLDAP_
 ```
 
 In Above example, we have listed the directories under /user using Webhdfs API call and knox gateway.
-Output result will be displayed in JASON format. You can use any [JSON formatter] (https://jsonformatter.org/ "Json Formatter") online, to format this json
+Output result will be displayed in JASON format. You can use any [Named Link](https://jsonformatter.org/ "JSON Formatter") online, to format this json
 output.
 
 #### Step 3: Write file to HDFS using Knox gatway
@@ -65,7 +65,7 @@ hadoop.proxyuser.knox.hosts=*
 #### 2) Configure Knox Topology for AD/LDAP Authentication (Make sure you Stop Demo LDAP if it is running)
 
 #### 3) Goto : Ambari > Knox > Config > Advance Topology
-_Use below [Sample configuration](https://drive.google.com/open?id=1fgLWZt1gCWtgktt5Z9laaV4_FTDy1jl0 "Dabsterinc.com Knox Sample") to configure AD with Knox. You can refer websites given at the end of this
+_Use below [Named Link](https://drive.google.com/open?id=1fgLWZt1gCWtgktt5Z9laaV4_FTDy1jl0 "Sample configuration") to configure AD with Knox. You can refer websites given at the end of this
 document to know more about these properties._
 ```
 <topology>
