@@ -52,7 +52,7 @@ drwx-wx-wx - ambari-qa hdfs 0 2018-08-06 12:56 /tmp/hive
 ```
 
 ### Creating Knox topology
-### Setup Up LDAP/AD Authentication for knox
+### Setup AD/LDAP Authentication for knox
 LDAP authentication is configured by adding a "ShiroProvider" authentication provider to the cluster's topology
 file. When enabled, the Knox Gateway uses Apache Shiro `(org.apache.shiro.realm.ldap.JndiLdapRealm or
 org.apache.hadoop.gateway.shirorealm.KnoxLdapRealm)` to authenticate users against the configured LDAP store.
