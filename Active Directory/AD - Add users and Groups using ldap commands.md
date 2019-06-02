@@ -17,29 +17,29 @@ ARG_NewUserPass=`echo -n '"Hadoop123!"' | iconv -f UTF8 -t UTF16LE | base64 -w 0
 The first part of the following LDIF creates the disabled user account, the second part sets the password and the last part enables the account:
 
 ```
-# cat > /tmp/Prutser.ldif <<EOFILE
-dn: CN=Piet Prutser,${ARG_SEARCHBASE}
+# cat > /tmp/adduser-lcano.ldif <<EOFILE
+dn: CN=Loraine Cano,${ARG_SEARCHBASE}
 changetype: add
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: user
-cn: Gulshad Ansari
-sn: Ansari
-givenName: Gulshad
-displayName: Gulshad Ansari
-name: Gulshad Ansari
+cn: Loraine Cano
+sn: Cano
+givenName: Loraine
+displayName: Loraine Cano
+name: Loraine Cano
 accountExpires: 9223372036854775807
 userAccountControl: 514
-sAMAccountName: gansari
-userPrincipalName: gansari@${ARG_DOMAIN}
+sAMAccountName: lcano
+userPrincipalName: lcano@${ARG_DOMAIN}
 
-dn: CN=Gulshad Ansari,${ARG_SEARCHBASE}
+dn: CN=Loraine Cano,${ARG_SEARCHBASE}
 changetype: modify
 replace: unicodePwd
 unicodePwd::${ARG_NewUserPass}
 
-dn: CN=Gulshad Ansari,${ARG_SEARCHBASE}
+dn: CN=Loraine Cano,${ARG_SEARCHBASE}
 changetype: modify
 replace: userAccountControl
 userAccountControl: 512
@@ -47,11 +47,11 @@ EOFILE
 ```
 #### b) Add user entry
 ```
-# LDAPTLS_REQCERT=never ldapadd -x -H "${ARG_LDAPURI}" -a -D "${ARG_BINDDN}" -w "${ARG_USERPSWD}" -f /tmp/adduser-gansari.ldif 
+# LDAPTLS_REQCERT=never ldapadd -x -H "${ARG_LDAPURI}" -a -D "${ARG_BINDDN}" -w "${ARG_USERPSWD}" -f /tmp/adduser-lcano.ldif 
 ```
 #### c) Search and verify entries
 ```
-# LDAPTLS_REQCERT=never ldapsearch -x -H "${ARG_LDAPURI}" -D "${ARG_BINDDN}" -b "${ARG_SEARCHBASE}"  -L -w "${ARG_USERPSWD}" "cn=Piet Prutser"
+# LDAPTLS_REQCERT=never ldapsearch -x -H "${ARG_LDAPURI}" -D "${ARG_BINDDN}" -b "${ARG_SEARCHBASE}"  -L -w "${ARG_USERPSWD}" "cn=Loraine Cano"
 ```
 
 ### 2) Add Group
@@ -84,7 +84,7 @@ EOFILE
 dn: CN=mygroup,OU=Groups,OU=Hadoop,DC=DABSTERINC,DC=COM
 changetype: modify
 add: member
-member: CN=Piet Prutser,OU=Users,OU=Hadoop,DC=DABSTERINC,DC=COM
+member: CN=Loraine Cano,OU=Users,OU=Hadoop,DC=DABSTERINC,DC=COM
 member: CN=Wasim Khan,OU=Users,OU=Hadoop,DC=DABSTERINC,DC=COM
 member: CN=s-admin,OU=Users,OU=Hadoop,DC=DABSTERINC,DC=COM
 member: CN=Jason,OU=Users,OU=Hadoop,DC=DABSTERINC,DC=COM
