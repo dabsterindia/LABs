@@ -41,3 +41,7 @@ $ mysql -u mysqldba -p
 $ show databases;
 ```
 
+### 5. (Optional) See active connections
+```
+$ lsof -i :3306
+```
