@@ -45,3 +45,8 @@ $ show databases;
 ```
 $ lsof -i :3306
 ```
+
+You can also refer below link if mysql-server repo is not available in your sever or if you want to install customer version
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-7
+
