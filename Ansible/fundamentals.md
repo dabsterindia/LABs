@@ -5,6 +5,7 @@
 yum install ansible -y
 
 mkdir setup_cluster
+```
 
 `vi hosts`
 
