@@ -107,10 +107,12 @@ document to know more about these properties._
 				<name>main.ldapRealm.contextFactory.authenticationMechanism</name>
 				<value>simple</value>
 			</param>
+			<!--
 			<param>
 				<name>main.ldapRealm.userDnTemplate</name>
 				<value>CN={0},OU=DabUsers,OU=hadoop,DC=dabsterinc,DC=lab,DC=com</value>
 			</param>
+			-->
 			<param>
 				<name>main.ldapRealm.searchBase</name>
 				<value>OU=DabUsers,OU=hadoop,DC=dabsterinc,DC=lab,DC=com</value>
@@ -145,19 +147,19 @@ document to know more about these properties._
 			</param>
 		</provider>
 
-        <provider>
-            <role>authorization</role>
-            <name>AclsAuthz</name>
-            <enabled>true</enabled>
-            <param name="knox.acl" value="*;*;*"/>
-        </provider>
+       		<provider>
+            		<role>authorization</role>
+            			<name>AclsAuthz</name>
+           			<enabled>true</enabled>
+            		<param name="knox.acl" value="*;*;*"/>
+        	</provider>
 
-        <provider>
-          <role>identity-assertion</role>
-          <name>Default</name>
-          <enabled>true</enabled>
-        </provider>
-</gateway>
+        	<provider>
+          		<role>identity-assertion</role>
+          		<name>Default</name>
+          		<enabled>true</enabled>
+        	</provider>
+	</gateway>
 
 
 <!-- Services -->
