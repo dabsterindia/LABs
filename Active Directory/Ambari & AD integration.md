@@ -111,3 +111,40 @@ Ambari Server 'sync-ldap' completed successfully.
 
 ## Step 4. Login ambari UI and verify whether all users & groups are syncd
 Ambari UI --> admin --> Manage Ambari --> Users
+
+
+### OPTIONAL
+#### Automate this process
+```
+ambari-server setup-ldap \
+--ldap-primary-host=adserver.asia-south1-c.c.x-plateau-236613.internal \
+--ldap-primary-port=389 \
+--ldap-ssl=false \
+--ldap-type=AD \
+--ldap-user-class=user \
+--ldap-user-attr=sAMAccountName \
+--ldap-group-class=group \
+--ldap-group-attr=cn \
+--ldap-member-attr=member \
+--ldap-dn=distinguishedName \
+--ldap-base-dn=DC=HWX,DC=COM \
+--ldap-manager-dn=CN=Administrator,CN=Users,DC=HWX,DC=COM \
+--ldap-manager-password=Hadoop@123 \
+--ldap-referral=follow \
+--ldap-bind-anonym=false \
+--ldap-sync-username-collisions-behavior=skip \
+--ldap-force-lowercase-usernames=true \
+--ldap-pagination-enabled=true \
+--ldap-save-settings \
+--ldap-force-setup \
+--ambari-admin-username=admin \
+--ambari-admin-password=admin
+```
+
+```
+ambari-server sync-ldap --users /var/tmp/users.txt --groups /var/tmp/groups.txt
+
+OR
+
+ambari-server sync-ldap --all
+```
