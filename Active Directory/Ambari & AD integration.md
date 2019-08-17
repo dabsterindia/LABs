@@ -148,3 +148,6 @@ OR
 
 ambari-server sync-ldap --all
 ```
+
+more options:
+https://github.com/apache/ambari/blob/d44c1b118f8e17c1af83dbd71a06f1be2e82c4c3/ambari-server/src/main/python/ambari-server.py#L372-L408
