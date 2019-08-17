@@ -13,25 +13,23 @@ AD HOSTNAME = adserver.asia-south1-c.c.x-plateau-236613.internal
 - [x] You should have MIT KDC admin credentials (we are using admin/admin here)
 - [x] AD admin privileges to setup trust (see step 1)
 
-### > STEP 1: Setup Trust in AD (Peform these steps on AD)
-#### >> 1. Login your Active Directory with a user having with ___Administrator privileges___
+### STEP 1: Setup Trust in AD (Peform these steps on AD)
 
-##### Execute following commands in PowerShell
+#### Login to Active Directory with a user having *Administrator privileges* & Execute following commands in PowerShell
 
-##### >> 1.1 : Create a KDC definition in Active Directory
+  ##### 1.1: Create a KDC definition in Active Directory
 ```
 ksetup /addkdc MIT.HORTONWORKS.COM hdp3.europe-west2-c.c.x-plateau-236613.internal
 ```
 
-##### >> 1.2 : Create the Trust in Active Directory
-
+  ##### 1.2: Create the Trust in Active Directory
 ___Important:___ The password used here will be used later in the MIT KDC configuration of the trust:
 
 ```
 netdom trust MIT.HORTONWORKS.COM /Domain:HWX.COM /add /realm /passwordt:Hadoop@123
 ```
 
-##### >> 1.3 : Specify Encryption Types in Active Directory
+  ##### 1.3: Specify Encryption Types in Active Directory
 ```
 ksetup /SetEncTypeAttr MIT.HORTONWORKS.COM AES256-CTS-HMAC-SHA1-96 AES128-CTS-HMAC-SHA1-96 RC4-HMAC-MD5 DES-CBC-MD5 DES-CBC-CRC
 ```
