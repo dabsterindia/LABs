@@ -69,8 +69,6 @@ HWX.COM = {
 ```
 
 __EXAMPLE krb5.com:__
-<details>
-	<summary>Example krb5</summary>
 ```
 [libdefaults]
   renew_lifetime = 7d
@@ -121,9 +119,8 @@ HWX.COM = {
   default_domain = adserver.asia-south1-c.c.x-plateau-236613.internal
   }
 ```
-</details>
 
-##### 3.2 : Configure _auth_to_local_ RULE's to convert AD principal to a username
+ #### 3.2 : Configure _auth_to_local_ RULE's to convert AD principal to a username
 
 Goto Ambari > HDFS > Configs > Advanced
 
@@ -132,17 +129,19 @@ Goto Ambari > HDFS > Configs > Advanced
 RULE:[1:$1@$0](^.*@HWX\.COM$)s/^(.*)@HWX\.COM$/$1/g
 RULE:[2:$1@$0](^.*@HWX\.COM$)s/^(.*)@HWX\.COM$/$1/g
 ```
-#### Step 4: Validate setup
+### Step 4: Validate setup
 
-##### 4.1 : Run below command and see if it converts principal with @HWX.COM to a username
+ #### 4.1 : Run below command and see if it converts principal with @HWX.COM to a username
+```
 hadoop org.apache.hadoop.security.HadoopKerberosName <aduser>@HWX.COM
+```
 
 Example output:
 ```
 # hadoop org.apache.hadoop.security.HadoopKerberosName dabster@HWX.COM
 Name: dabster@HWX.COM to dabster
 ```
-##### 4.2 : kinit with AD user and access hadoop
+ ##### 4.2 : kinit with AD user and access hadoop
 ```
 [root@hdp3 kerberos]# kinit dabster@HWX.COM
 Password for dabster@HWX.COM:
@@ -164,6 +163,5 @@ drwxr-xr-x   - mapred hdfs            0 2019-08-06 11:17 /mapred
 drwxrwxrwx   - mapred hadoop          0 2019-08-06 11:17 /mr-history
 drwxrwxrwx   - hdfs   hdfs            0 2019-08-17 15:07 /tmp
 drwxr-xr-x   - hdfs   hdfs            0 2019-08-06 11:17 /user
-
 ```
 
