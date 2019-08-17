@@ -9,9 +9,9 @@ AD HOSTNAME = adserver.asia-south1-c.c.x-plateau-236613.internal
 ```
 
 ### Prerequisites
-[x] Cluster should be kerberized with MIT KDC
-[x] You should have MIT KDC admin credentials (we are using admin/admin here)
-[x] AD admin privileges to setup trust (see step 1)
+- [x] Cluster should be kerberized with MIT KDC
+- [x] You should have MIT KDC admin credentials (we are using admin/admin here)
+- [x] AD admin privileges to setup trust (see step 1)
 
 ### > STEP 1: Setup Trust in AD (Peform these steps on AD)
 #### >> 1. Login your Active Directory with a user having with ___Administrator privileges___
