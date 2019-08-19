@@ -50,6 +50,10 @@ The `<host>.csr` file that is created by this command contains the information a
 
 #### 5. Submit the CSR to your Certificate Authority.
 
+CA will use [This](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Create%20and%20Set%20Up%20an%20Internal%20CA.md "") process to generate `certificates`.
 
 #### 6. To import and install keys and certificates, follow the instructions sent to you by the CA
+
+
+Follow --> [Import Certs to keystore](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Client%20-%20Import%20certificate%20signed%20by%20CA.md "").
 
