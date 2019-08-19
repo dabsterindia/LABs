@@ -49,3 +49,35 @@ total 20
 -rw-r--r-- 1 root root 1493 Aug 01 19:53 ca.cert
 -rw-r--r-- 1 root root 1834 Aug 01 19:53 ca.key
 ```
+
+#### 3. Acting as the client requesting a signed certificate, create your key and keystore for each node in your cluster
+
+Follow ------------ to generate CSR
+
+#### 4. Acting as the Signing Authority for your organization, create a signed certificate using the client CSR file:
+
+Files needed:
+ host.csr (created in step 3)
+ ca.key (created in step 1)
+ ca.cert (created in step 1)
+
+Files created:
+ host.crt
+
+The command syntax used to create the certificate using the CSR file is:
+```
+openssl x509 -req -CA ca.cert -CAkey ca.key -in <host>.csr -out <host>.crt -days 730 -CAcreateserial -passin pass:<password>
+```
+
+eg:
+```
+# openssl x509 -req -CA ca.cert -CAkey ca.key -in master01.csr -out master01.crt -days 730 -CAcreateserial -passin pass:hadoop
+Signature ok
+subject=/C=IN/ST=Maharashtra/L=Pune/O=Dabster, Inc/OU=Development/CN=dabsterinc.com
+Getting CA Private Key
+```
+
+#### 5. Send this file to Client with import instructions
+
+#### 6. Acting as the client : import the certificate signed by Signing Authority above into your keystore
+Follow this
