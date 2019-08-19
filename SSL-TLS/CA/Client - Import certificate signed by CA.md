@@ -1,7 +1,7 @@
 # Import the certificates in keystore
 
 #### 1 . Get cetificate signed by CA
-Follow this
+Follow --> [This](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Create%20and%20Set%20Up%20an%20Internal%20CA.md "") to generate new certificates, if you dont have CA signed certs.
 
 #### 2. Import the certificate signed by Signing Authority above into your keystore
 Files needed:
