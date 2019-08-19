@@ -7,13 +7,14 @@ To obtain a certificate signed by a third-party CA, generate and submit a Certif
 
 #### 1. Generate the host key:
 ```
-keytool -keystore <client-keystore> -genkey -alias <host>
+keytool -keystore <client-keystore> -genkey -alias <host> -validity 730
 ```
 #### 2. At the prompts, enter the information required by the CSR.
+_Note: that the "first and last name" entry will need the fully qualified domain name (FQDN) of a node
 ```
-[root@master01 ~]# keytool -keystore keystore.jks -genkey -alias `hostname`
-Enter keystore password:
-Re-enter new password:
+[root@master01 ~]# keytool -keystore keystore.jks -genkey -alias `hostname` -validity 365
+Enter keystore password: <some password>
+Re-enter new password: <some password>
 What is your first and last name?
   [Unknown]:  master02.dabsterinc.com
 What is the name of your organizational unit?
@@ -30,8 +31,7 @@ Is CN=master02.dabsterinc.com, OU=Development, O="Dabster, Inc", L=Pune, ST=Maha
   [no]:  yes
 
 Enter key password for <master02.dabsterinc.com>
-	(RETURN if same as keystore password):
-Re-enter new password:
+	(RETURN if same as keystore password): <it is suggested to just press enter here>
 ```
 By default, `keystore` uses JKS format for the keystore and truststore. 
 
@@ -42,13 +42,14 @@ By default, `keystore` uses JKS format for the keystore and truststore.
 
 #### 4. Create the CSR file
 ```
-keytool -keystore <keystorename> -certreq -alias <host> -keyalg rsa -file <host>.csr
+keytool -keystore <keystorename> -certreq -alias <host> -file <host>.csr
 ```
-This command generates a certificate signing request that can be sent to a CA. The file <host>.csr contains the CSR.
+This command generates a certificate signing request that can be sent to a CA. The file `<host>.csr` contains the CSR.
+
+The `<host>.csr` file that is created by this command contains the information about the private key that is stored within the keystore.jks file so that a signed certificate can be properly created.
 
 #### 5. Submit the CSR to your Certificate Authority.
 
+
 #### 6. To import and install keys and certificates, follow the instructions sent to you by the CA
 
-Ref: 
-https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.4/bk_Security_Guide/content/ch_obtain-trusted-cert.html
