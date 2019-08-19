@@ -52,7 +52,7 @@ total 20
 
 #### 3. Acting as the client requesting a signed certificate, create your key and keystore for each node in your cluster
 
-Follow [Named Link](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Obtain%20a%20Certificate%20from%20CA.md "Generate Cerificate Signing Request")
+Follow --> [Generate Cerificate Signing Request](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Obtain%20a%20Certificate%20from%20CA.md "Generate Cerificate Signing Request")
 
 
 #### 4. Acting as the Signing Authority for your organization, create a signed certificate using the client CSR file:
@@ -82,4 +82,4 @@ Getting CA Private Key
 
 #### 6. Acting as the client : import the certificate signed by Signing Authority above into your keystore
 
-Follow [Named Link](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Client%20-%20Import%20certificate%20signed%20by%20CA.md "Import Certificate in Keystore")
+Follow --> [Import Certificate in Keystore](https://github.com/dabsterindia/LABs/blob/master/SSL-TLS/CA/Client%20-%20Import%20certificate%20signed%20by%20CA.md "Import Certificate in Keystore")
