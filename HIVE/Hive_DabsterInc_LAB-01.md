@@ -55,5 +55,7 @@ select * from sample_08 limit 10;
 
 select count(*) from sample_07;
 ```
-
+```
+!q
+```
 
