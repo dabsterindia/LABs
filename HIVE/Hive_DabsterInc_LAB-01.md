@@ -14,7 +14,7 @@ wget https://raw.githubusercontent.com/HortonworksUniversity/Security_Labs/maste
 
 #### 2: Create sample database, create tables and load data in sample tables
 ```
-# HIVE_CONNECTION_STRING="jdbc:hive2://localhost:10000/;"
+# HIVE_CONNECTION_STRING="jdbc:hive2://zk1.hortonworks.com:2181,zk2.hortonworks.com:2181,zk3.hortonworks.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2"
 
 # beeline -n hive -u $HIVE_CONNECTION_STRING
 ```
