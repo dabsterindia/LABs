@@ -49,9 +49,11 @@ load data local inpath '/var/tmp/sampledata/sample_08.csv' into table sample_08;
 
 #### 3: Query tables and see if data is loaded propperly
 ```
-select * from sample_07;
+select * from sample_07 limit 10;
 
-select * from sample_08;
+select * from sample_08 limit 10;
+
+select count(*) from sample_07;
 ```
 
 
