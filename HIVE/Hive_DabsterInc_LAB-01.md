@@ -33,7 +33,7 @@ CREATE TABLE `sample_07` (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TextFile;
 ```
 ```
-load data local inpath '/var/tmp/sample_07.csv' into table sample_07;
+load data local inpath '/var/tmp/sampledata/sample_07.csv' into table sample_07;
 ```
 ```
 CREATE TABLE `sample_08` (
@@ -44,7 +44,7 @@ CREATE TABLE `sample_08` (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TextFile;
 ```
 ```
-load data local inpath '/var/tmp/sample_08.csv' into table sample_08;
+load data local inpath '/var/tmp/sampledata/sample_08.csv' into table sample_08;
 ```
 
 #### 3: Query tables and see if data is loaded propperly
