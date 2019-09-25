@@ -1,6 +1,6 @@
 
 
-### Import sample data into Hivecd /tmp
+## Import sample data into Hive
 
 #### 1: Login to hiveserver2 node and download sample data
 ```
