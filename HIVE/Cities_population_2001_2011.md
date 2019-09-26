@@ -1,4 +1,5 @@
 
+## Create sample hive table(s) using sample population dataset
 
 #### 1: Login to hiveserver2 node and download sample data
 
@@ -39,7 +40,7 @@ desc cities;
 ```
 describe formatted cities;
 ```
-### 3. Create two new tables `cities_pop_2001` & `cities_pop_2011` using existing table
+#### 3. Create two new tables `cities_pop_2001` & `cities_pop_2011` using existing table
 ```
 create table cities_pop_2001 as select rank,name,population_2001,state from cities;
 ```
