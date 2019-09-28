@@ -41,4 +41,12 @@ _Example:_
 ### 4. Create a new notebook, and use `mysql` as your interpreter.
 ![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_create_notebook_mysql.png)
 
+### 5. Create a sample dataset on MYSQL (optional)
+Follow https://github.com/dabsterindia/LABs/blob/master/Database/sample_datasets/sample_datasets_for_mysql.md
+
+### 6. Execute MYSQL Queries from Zeppelin Notebook
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_ interpreter_sample_sql1.png)
+
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_ interpreter_sample_sql2.png)
+
 
