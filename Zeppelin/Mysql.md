@@ -31,3 +31,4 @@ default.url    =  jdbc:mysql://mysqlhost:3306/
 f. In the `Dependencies` section, you must specify the artifact of the MySQL Connector JAR that we previously downloaded. Since we downloaded version 5.1.41 in this example, the artifact is `mysql:mysql-connector-java:5.1.41`
 
 _Example:_
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_interpretter_settings.png)
