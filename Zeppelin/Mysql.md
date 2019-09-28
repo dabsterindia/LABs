@@ -45,8 +45,8 @@ _Example:_
 Follow https://github.com/dabsterindia/LABs/blob/master/Database/sample_datasets/sample_datasets_for_mysql.md
 
 ### 6. Execute MYSQL Queries from Zeppelin Notebook
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_ interpreter_sample_sql1.png)
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_%20interpreter_sample_sql1.png)
 
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_ interpreter_sample_sql2.png)
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_%20interpreter_sample_sql2.png)
 
 
