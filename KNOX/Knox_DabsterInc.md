@@ -194,23 +194,23 @@ document to know more about these properties._
    </service>
    <service>
       <role>HDFSUI</role>
-      <url>http://<hostname>:50070</url>
+      <url>http://your.namenode.hostname.com:50070</url>
    </service>
    <service>
       <role>YARNUI</role>
-      <url>http://<hostname>:8088</url>
+      <url>http://your.rm.hostname.com:8088</url>
    </service>
    <service>
       <role>JOBHISTORYUI</role>
-      <url>http://<hostname>:19888</url>
+      <url>http://your.jhs.hostname.com:19888</url>
    </service>
    <service>
       <role>AMBARIUI</role>
-      <url>http://<hostname>:8080</url>
+      <url>http://your.ambari.hostname.com:8080</url>
    </service>
    <service>
       <role>RANGERUI</role>
-      <url>http://<hostname>:6180</url>
+      <url>http://your.ranger.hostname.com:6180</url>
    </service>
    <service>
       <role>DRUID-COORDINATOR-UI</role>
