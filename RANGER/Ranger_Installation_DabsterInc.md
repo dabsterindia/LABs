@@ -2,8 +2,8 @@
 
 
 ## Pre-requisites:
-.Ranger uses a Database to store its policies & user information. 
-.Install a new database OR Use an existing one.
+  Ranger uses a Database to store its policies & user information. 
+  Install a new database OR Use an existing one.
 
 
 #### Setup MySQL Server
