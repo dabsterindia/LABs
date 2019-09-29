@@ -57,17 +57,26 @@ ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connecto
 #### a. Go to Ambari Dashboard --> Add Service --> Select Ranger
 
 #### b. Choose Service > Ranger > Next
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/ranger_install_addservice.png)
 
 #### c. Check the prerequisites as below and check the box after all the requirements are met --> Click "Proceed"
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/ranger_install_prereq.png)
 
 #### d. Assign Masters > Select host for Ranger admin & Ranger User Sync > Next
 
 #### e. Assign Slaves and Clients > Select host for Ranger tag Sync > Next
 
 #### f. Customize Services update the necessary information
+* Provide database details
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/ranger_install_customize_service_db_details.png)
 
+* Enable Audit for solr if infra solr is installed otherwise disable solr audits
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/ranger_install_customize_service_audits.png)
+
+* In Ambari-2.7+, Set passwords for ranger users, it should be a minimum 8 characters long and must contain alpha numeric characters.
 
 #### g. Review & deploy
 
+## Enable Ranger Plugins
 
-
+## Restart All Required Services
