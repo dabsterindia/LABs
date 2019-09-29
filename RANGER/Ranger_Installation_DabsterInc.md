@@ -2,9 +2,8 @@
 
 
 ## Pre-requisites:
-  * Install a database (MySQL, PG, ORACLE etc) OR Use an existing one. (Ranger uses a Database to store its policies & user information.)*
+  * Install a database (MySQL, PG, ORACLE etc) OR Use an existing one
   * Install Infra Solr (for audits)
-  * Install & setup Atlas (for Tags).
 
 
 ### Setup MySQL Server
