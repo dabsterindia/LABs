@@ -2,13 +2,14 @@
 
 
 ## Pre-requisites:
-  * Ranger uses a Database to store its policies & user information. 
-  * Install a new database OR Use an existing one.
+  * Install a database (MySQL, PG, ORACLE etc) OR Use an existing one. (Ranger uses a Database to store its policies & user information.)*
+  * Install Infra Solr (for audits)
+  * Install & setup Atlas (for Tags).
 
 
-#### Setup MySQL Server
+### Setup MySQL Server
 
-### a. Install MySQL Server (Optional - Skip this step if you already have a database installed)
+#### a. Install MySQL Server (Optional - Skip this step if you already have a database installed)
 
 ```
 yum install -y mysql-server
@@ -16,7 +17,7 @@ service mysqld start
 chkconfig mysqld on
 ```
 
-### b. Login Mysql and create an admin user for ranger. Here we are creating a user `rangerdba` with password `rangerdba`
+#### b. Login Mysql and create an admin user for ranger. Here we are creating a user `rangerdba` with password `rangerdba`
 
 ```
 # mysql
@@ -36,7 +37,7 @@ exit
 # mysql -urangerdba -prangerdba
 ```
 
-### c. Setup ambari-server to use mysql-connector while connenting to MySQL server
+#### c. Setup ambari-server to use mysql-connector while connenting to MySQL server
 
 On Ambari-Server hosts, Verify whether mysql connector is installed & available in below location.
 ```
@@ -53,7 +54,7 @@ ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connecto
 ```
 
 
-### Install Ranger
-
+## Install Ranger
+#### a. Go to Ambari Dashboard --> Add Service --> Select Ranger
 
 
