@@ -56,4 +56,18 @@ ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connecto
 ## Install Ranger
 #### a. Go to Ambari Dashboard --> Add Service --> Select Ranger
 
+#### b. Choose Service > Ranger > Next
+
+#### c. Check the prerequisites as below and check the box after all the requirements are met --> Click "Proceed"
+
+#### d. Assign Masters > Select host for Ranger admin & Ranger User Sync > Next
+
+#### e. Assign Slaves and Clients > Select host for Ranger tag Sync > Next
+
+#### f. Customize Services update the necessary information
+
+
+#### g. Review & deploy
+
+
 
