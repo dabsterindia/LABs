@@ -35,18 +35,4 @@ default.url    =  jdbc:mysql://mysqlhost:3306/
 f. In the `Dependencies` section, you must specify the artifact of the MySQL Connector JAR that we previously downloaded. Since we downloaded version 5.1.41 in this example, the artifact is `mysql:mysql-connector-java:5.1.41`
 
 _Example:_
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_interpretter_settings.png)
-
-
-### 4. Create a new notebook, and use `mysql` as your interpreter.
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_create_notebook_mysql.png)
-
-### 5. Create a sample dataset on MYSQL (optional)
-Follow https://github.com/dabsterindia/LABs/blob/master/Database/sample_datasets/sample_datasets_for_mysql.md
-
-### 6. Execute MYSQL Queries from Zeppelin Notebook
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_%20interpreter_sample_sql1.png)
-
-![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images/zeppelin_mysql_%20interpreter_sample_sql2.png)
-
-
+![alt text](https://github.com/dabsterindia/LABs/blob/master/tmp/images
