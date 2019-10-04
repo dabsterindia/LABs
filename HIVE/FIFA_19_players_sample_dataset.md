@@ -34,6 +34,9 @@ CREATE TABLE `fifa_19_players` (
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TextFile;
 ```
 ```
+show tables;
+```
+```
 load data local inpath '/var/tmp/fifa_19_players_data.csv' into table fifa_19_players;
 ```
 ```
@@ -52,3 +55,14 @@ select * from fifa_19_players_dataset limit 20;
 select * from fifa_19_players_dataset where club='Real Madrid';
 ```
 
+```
+SELECT DISTINCT nationality from fifa_19_players;
+```
+
+```
+select count(*) from fifa_19_players_dataset;
+```
+
+```
+select count(*) from fifa_19_players where nationality='Russia';
+```
