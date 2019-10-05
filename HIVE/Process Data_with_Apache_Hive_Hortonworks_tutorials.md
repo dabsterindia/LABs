@@ -70,7 +70,7 @@ CREATE TABLE timesheet (driverId INT, week INT, hours_logged INT , miles_logged 
 ```
 
 ```
-insert overwrite table timesheet;
+insert overwrite table timesheet
 SELECT
   regexp_extract(col_value, '^(?:([^,]*),?){1}', 1) driverId,
   regexp_extract(col_value, '^(?:([^,]*),?){2}', 1) week,
@@ -86,7 +86,7 @@ SELECT * FROM timesheet LIMIT 10;
 
 #### Create Query to Filter The Data (driverId, hours_logged, miles_logged)
 ```
-SELECT driverId, sum(hours_logged), sum(miles_logged) FROM timesheet GROUP BY driverId
+SELECT driverId, sum(hours_logged), sum(miles_logged) FROM timesheet GROUP BY driverId;
 ```
 
 #### Create Query to Join The Data (driverId, name, hours_logged, miles_logged);
