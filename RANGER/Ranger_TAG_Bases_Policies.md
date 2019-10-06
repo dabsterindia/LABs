@@ -42,11 +42,13 @@ stored as textfile;
 ```
 #### d. Load data to `employee` table
 ```
-sudo -su hive hdfs dfs -put /var/tmp/script_datagenerator/employee_data.csv /warehouse/tablespace/managed/hive/emp_sampledb/
+sudo -su hive hdfs dfs -put \
+/var/tmp/script_datagenerator/employee_data.csv \
+/warehouse/tablespace/managed/hive/emp_sampledb.db/employee
 ```
 #### 3) Check employee table
 ```
-# beeline -n hive -p hive -u $HIVE_CONNECTION_STRING -e "select * from emp_sampledb.employee limit 50"
+# beeline -n hive -p hive -e "select * from emp_sampledb.employee limit 50" -u $HIVE_CONNECTION_STRING
 ```
 
 
