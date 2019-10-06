@@ -51,10 +51,10 @@ sudo -su hive hdfs dfs -put \
 # beeline -n hive -p hive -e "select * from emp_sampledb.employee limit 50" -u $HIVE_CONNECTION_STRING
 ```
 
-### 3. Install Atlas
+### 3. Install Atlas through ambari
 
 
-#### 0. Prerequisites : Before we begin, make sure you have following services installed in your HDP cluster
+#### 0. Prerequisites : Before you begin, make sure you have following services installed in your HDP cluster
 * Install infra-solr
 * Install HBase
 * Install Kafka
