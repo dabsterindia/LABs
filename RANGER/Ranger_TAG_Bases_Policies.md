@@ -53,12 +53,13 @@ sudo -su hive hdfs dfs -put \
 
 ### 3. Install Atlas
 
-#### 0. Prerequisites
+
+#### 0. Prerequisites : Before we begin, make sure you have following services installed in your HDP cluster
 * Install infra-solr
 * Install HBase
 * Install Kafka
 
-#### i. Add service Atlas
+#### i. Add Atlas service
 
 #### ii. Set password for admin user at "Customize services"
 
