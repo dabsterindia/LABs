@@ -46,14 +46,25 @@ sudo -su hive hdfs dfs -put \
 /var/tmp/script_datagenerator/employee_data.csv \
 /warehouse/tablespace/managed/hive/emp_sampledb.db/employee
 ```
-#### 3) Check employee table
+#### e. Check employee table
 ```
 # beeline -n hive -p hive -e "select * from emp_sampledb.employee limit 50" -u $HIVE_CONNECTION_STRING
 ```
 
+### 3. Install Atlas
 
+#### 0. Prerequisites
+* Install infra-solr
+* Install HBase
+* Install Kafka
 
+#### i. Add service Atlas
 
+#### ii. Set password for admin user at "Customize services"
+
+#### iii. Complete the Atlas installation
+
+#### iv. Restart All required
 
 
 
