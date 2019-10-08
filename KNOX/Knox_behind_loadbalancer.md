@@ -17,7 +17,7 @@ cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bkp
 ```
 vi /etc/httpd/conf/httpd.conf
 ```
-#### a. Change default port number to 6080, default is set to 80 (Listen 80)
+#### a. Change default port number to 8443, default is set to 80 (Listen 80)
 ```
 Listen 8443
 ```
