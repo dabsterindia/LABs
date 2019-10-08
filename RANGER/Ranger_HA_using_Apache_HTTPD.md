@@ -33,6 +33,9 @@ ssh lb.hadoop.com
 ```
 
 a.	Change default port number to 6080, default is set to 80 (Listen 80)
+```
+Listen 8443
+```
 
 b.	Un-comment/Add following module entries
 ```
@@ -48,7 +51,7 @@ LoadModule lbmethod_bybusyness_module modules/mod_lbmethod_bybusyness.so
 
 c.	Comment out ServerAdmin email address
 ```
-#ServerAdmin you@example.com
+#ServerAdmin root@localhost
 ```
 
 d.	At the end of the httpd.conf file, add the following line to read the custom configuration file:
