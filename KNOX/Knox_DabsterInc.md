@@ -194,19 +194,29 @@ document to know more about these properties._
    </service>
    <service>
       <role>HDFSUI</role>
-      <url>http://your.namenode.hostname.com:50070</url>
+      <url>http://your.namenode1.hostname.com:50070</url>
+      <url>http://your.namenode2.hostname.com:50070</url>      
    </service>
    <service>
       <role>YARNUI</role>
-      <url>http://your.rm.hostname.com:8088</url>
+      <url>http://your.rm1.hostname.com:8088</url>
+      <url>http://your.rm2.hostname.com:8088</url>
    </service>
    <service>
       <role>JOBHISTORYUI</role>
       <url>http://your.jhs.hostname.com:19888</url>
    </service>
    <service>
+      <role>AMBARI</role>
+      <url>http://your.ambari.hostname.com:8080</url>
+   </service>
+   <service>
       <role>AMBARIUI</role>
       <url>http://your.ambari.hostname.com:8080</url>
+   </service>
+   <service>
+      <role>RANGER</role>
+      <url>http://your.ranger.hostname.com:6180</url>
    </service>
    <service>
       <role>RANGERUI</role>
@@ -325,4 +335,12 @@ System LDAP Bind successful.
 #### 3) You can also use WebBrowser to execute below Knox URL.
 Open Chrome and past Knox URL you want to execute. Ex:
 https://knox.dabsterinc.com:8443/gateway/default/webhdfs/v1/?op=LISTSTATUS"
+
+
+#### 4) Access All webUI through Knox
+
+AMBARI UI : https://knox.hortonworks.com:8443/gateway/default/ambari
+Namenode UI : https://knox.hortonworks.com:8443/gateway/default/hdfs/
+YARN UI : https://knox.hortonworks.com:8443/gateway/default/yarn
+Ranger : https://knox.hortonworks.com:8443/gateway/default/ranger
 
