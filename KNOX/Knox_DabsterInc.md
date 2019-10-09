@@ -158,6 +158,15 @@ document to know more about these properties._
          <name>Default</name>
          <enabled>true</enabled>
       </provider>
+      <provider>
+<role>ha</role>
+<name>HaProvider</name>
+<enabled>true</enabled>
+<param>
+<name>HDFSUI</name>
+<value>maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true</value>
+</param>
+</provider>
    </gateway>
    <!-- Services -->
    <service>
