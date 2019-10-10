@@ -209,12 +209,20 @@ document to know more about these properties._
    <service>
       <role>YARNUI</role>
       <url>http://your.rm1.hostname.com:8088</url>
-      <url>http://your.rm2.hostname.com:8088</url>
+   </service>
+   <service>
+      <role>YARNUIV2</role>
+      <url>http://your.rm1.hostname.com:8088</url>
    </service>
    <service>
       <role>JOBHISTORYUI</role>
       <url>http://your.jhs.hostname.com:19888</url>
+   </service>   
+   <service>
+      <role>OOZIEUI</role>
+      <url>http://oozie_server.hostname.com:11000/oozie/</url>
    </service>
+   
    <service>
       <role>AMBARI</role>
       <url>http://your.ambari.hostname.com:8080</url>
@@ -230,30 +238,6 @@ document to know more about these properties._
    <service>
       <role>RANGERUI</role>
       <url>http://your.ranger.hostname.com:6180</url>
-   </service>
-   <service>
-      <role>DRUID-COORDINATOR-UI</role>
-      {{druid_coordinator_urls}}
-   </service>
-   <service>
-      <role>DRUID-COORDINATOR</role>
-      {{druid_coordinator_urls}}
-   </service>
-   <service>
-      <role>DRUID-OVERLORD-UI</role>
-      {{druid_overlord_urls}}
-   </service>
-   <service>
-      <role>DRUID-OVERLORD</role>
-      {{druid_overlord_urls}}
-   </service>
-   <service>
-      <role>DRUID-ROUTER</role>
-      {{druid_router_urls}}
-   </service>
-   <service>
-      <role>DRUID-BROKER</role>
-      {{druid_broker_urls}}
    </service>
    <service>
       <role>ZEPPELINUI</role>
@@ -348,8 +332,13 @@ https://knox.dabsterinc.com:8443/gateway/default/webhdfs/v1/?op=LISTSTATUS"
 
 #### 4) Access All webUI through Knox
 
-AMBARI UI : https://knox.hortonworks.com:8443/gateway/default/ambari
-Namenode UI : https://knox.hortonworks.com:8443/gateway/default/hdfs/
-YARN UI : https://knox.hortonworks.com:8443/gateway/default/yarn
-Ranger : https://knox.hortonworks.com:8443/gateway/default/ranger
+* AMBARI : https://knox.hortonworks.com:8443/gateway/default/ambari
+* RANGER : https://knox.hortonworks.com:8443/gateway/default/ranger
+* YARN : https://knox.hortonworks.com:8443/gateway/default/yarn
+* YARNUI V2 : https://knox.hortonworks.com:8443/gateway/default/yarnuiv2
+* HDFS : https://knox.hortonworks.com:8443/gateway/default/hdfs/
+* HBASE : https://knox.hortonworks.com:8443/gateway/default/hbase
+* OOZIE : https://knox.hortonworks.com:8443/gateway/default/oozie/
+* ZEPPELIN : https://knox.hortonworks.com:8443/gateway/default/zeppelin
+
 
