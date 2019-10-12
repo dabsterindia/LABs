@@ -89,7 +89,7 @@ hdfs dfs -cat /ezone1/testfile.txt
 hdfs dfs -touchz /ezone1/testfile
 ```
 
-#### 3.5: Other users(including hdfs supperuser) can see files but cannot read/write files in encrypted zone
+#### 3.5: Other users(including hdfs supperuser) can list files but cannot read/write files in encrypted zone
 ```
 su - dab02
 hdfs dfs -cat /ezone1/testfile.txt
