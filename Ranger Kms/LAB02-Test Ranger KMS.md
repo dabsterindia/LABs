@@ -64,7 +64,7 @@ $ hdfs dfs -chmod 750 /ezone1
 #### 3.2: Using the encryption zone key, designate the folder as an encryption zone.
 ```
 $  su - hdfs
-$  hdfs crypto -createZone -keyName ez-key -path /ezone1
+$  hdfs crypto -createZone -keyName ezkey1 -path /ezone1
 $  hdfs crypto -listZones
 ```
 
