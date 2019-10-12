@@ -7,7 +7,7 @@ Our goal here is to:
 * Allow users (eg: dab01)to access encrypted data
 
 
-### Hadoop KMS commands used to manage keys and encryption zone
+#### Hadoop KMS commands used to manage keys and encryption zone
 `$ hadoop key`
 
 `$ hdfs crypto`
