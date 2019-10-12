@@ -12,7 +12,13 @@ Our goal here is to:
 
 `$ hdfs crypto`
 
-
+#### Add test user (dab01) on all nodes
+```
+adduser dab01
+ssh node2 'adduser dab01'
+ssh node3 'adduser dab01'
+ssh node4 'adduser dab01'
+```
 ## Step 1. Login Ranger and Verify whether hdfs superuser has permissions on keys
 
 #### 1.1 : Login Ranger with with keyadmin user credentials (default username/password is keyadmin/keyadmin)
