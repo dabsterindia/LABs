@@ -1,4 +1,4 @@
-# Most Useful commands
+# Most Used openldap command commands
 
 
 ## ADD Users:
@@ -7,7 +7,7 @@
 # vi user.ldif
 ```
 ```
-dn: uid=user1,ou=Hadoop,dc=dabsterinc,dc=com
+dn: uid=user1,ou=Hadoop,dc=hortonworks,dc=com
 objectClass: top
 objectClass: account
 objectClass: posixAccount
@@ -27,10 +27,10 @@ shadowWarning: 7
 ```
 
 ```
-# ldapadd -x -H ldap://localhost:389 -D cn=Manager,dc=dabsterinc,dc=com -W -f user.ldif
+# ldapadd -x -H ldap://localhost:389 -D cn=Manager,dc=hortonworks,dc=com -W -f user.ldif
 ```
 
-### EXTRA - Create more users using below steps
+### EXTRA's - Create more users using below steps
 ```
 cp user.ldif user2.ldif
 cp user.ldif user3.ldif
@@ -47,22 +47,22 @@ sed -i s/user1/jassi/g jassi.ldif
 sed -i s/user1/gansari/g gansari.ldif
 
 # Add User
-ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f user2.ldif -w dabster123!
-ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f user3.ldif -w dabster123!
-ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f jason.ldif -w dabster123!
-ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f john.ldif -w dabster123!
-ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f jassi.ldif -w dabster123!
-ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -f gansari.ldif -w dabster123!
+ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -f user2.ldif -w hadoop123!
+ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -f user3.ldif -w hadoop123!
+ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -f jason.ldif -w hadoop123!
+ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -f john.ldif -w hadoop123!
+ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -f jassi.ldif -w hadoop123!
+ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -f gansari.ldif -w hadoop123!
 
 # Set Password
 
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user1,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user2,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=user3,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jason,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=john,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=jassi,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
-ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=gansari,ou=Hadoop,dc=dabsterinc,dc=com" -w dabster123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=user1,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=user2,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=user3,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=jason,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=john,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=jassi,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
+ldappasswd -s Welcome@1 -D "cn=Manager,dc=hortonworks,dc=com" -x "uid=gansari,ou=Hadoop,dc=hortonworks,dc=com" -w hadoop123!
 ```
 
 
@@ -73,14 +73,14 @@ ldappasswd -s Welcome@1 -D "cn=Manager,dc=dabsterinc,dc=com" -x "uid=gansari,ou=
 ```
 
 ```
-dn: cn=hd-admins,ou=Hadoop,dc=dabsterinc,dc=com
+dn: cn=hd-admins,ou=Hadoop,dc=hortonworks,dc=com
 objectClass: top
 objectClass: posixGroup
 gidNumber: 678
 ```
 
 ```
-# ldapadd -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f groupCreate.ldif
+# ldapadd -x -D "cn=Manager,dc=hortonworks,dc=com" -w 'hadoop123!' -f groupCreate.ldif
 ```
 
 
@@ -90,17 +90,17 @@ gidNumber: 678
 ```
 
 ```
-dn: cn=hd-admins,ou=Hadoop,dc=dabsterinc,dc=com
+dn: cn=hd-admins,ou=Hadoop,dc=hortonworks,dc=com
 changetype: modify
 add: memberuid
 memberuid: user1
 
-dn: cn=hd-admins,ou=Hadoop,dc=dabsterinc,dc=com
+dn: cn=hd-admins,ou=Hadoop,dc=hortonworks,dc=com
 changetype: modify
 add: memberuid
 memberuid: user2
 
-dn: cn=hd-admins,ou=Hadoop,dc=dabsterinc,dc=com
+dn: cn=hd-admins,ou=Hadoop,dc=hortonworks,dc=com
 changetype: modify
 add: memberuid
 memberuid: user1
@@ -108,7 +108,7 @@ memberuid: john
 ```
 
 ```
-# ldapmodify -x -D "cn=Manager,dc=dabsterinc,dc=com" -w 'dabster123!' -f addusertogroup.ldif
+# ldapmodify -x -D "cn=Manager,dc=hortonworks,dc=com" -w 'hadoop123!' -f addusertogroup.ldif
 ```
 
 ## ADD Organizational Unit (OU)
@@ -117,14 +117,14 @@ memberuid: john
 ```
 
 ```
-dn: ou=Dev,ou=Hadoop,dc=dabsterinc,dc=com
+dn: ou=Dev,ou=Hadoop,dc=hortonworks,dc=com
 objectClass: organizationalUnit
 ou: kerberos
 description: kerberos principals OU
 ```
 
 ```
-# ldapadd -x -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -f newOU.ldif
+# ldapadd -x -D cn=Manager,dc=hortonworks,dc=com -w 'hadoop123!' -f newOU.ldif
 ```
 
 ## Delete Entry
@@ -134,11 +134,11 @@ ldapdelete -W -D "cn=Manager,dc=hortonworks,dc=com" "uid=john,ou=People,dc=horto
 
 ### ldap Search
 ```
-# ldapsearch -x cn=user1 -b dc=dabsterinc,dc=com
+# ldapsearch -x cn=user1 -b dc=hortonworks,dc=com
 ```
 ```
-# ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com
+# ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=hortonworks,dc=com -w 'hadoop123!' -b dc=hortonworks,dc=com
 ```
 ```
-# ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=dabsterinc,dc=com -w 'dabster123!' -b dc=dabsterinc,dc=com cn=john
+# ldapsearch -x -H ldap://$(hostname -f):389 -D cn=Manager,dc=hortonworks,dc=com -w 'hadoop123!' -b dc=hortonworks,dc=com cn=john
 ```
