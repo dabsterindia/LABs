@@ -1,5 +1,4 @@
-# Most Used openldap command commands
-
+# The Most Common openLDAP Commands
 
 ## ADD Users:
 
