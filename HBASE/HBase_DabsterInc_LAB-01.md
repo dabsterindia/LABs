@@ -17,7 +17,7 @@ put 'weblog', 'row3', 'stats:daily', 'test-daily-value'
 
 
 ```
-create 'weblog','stats'
-
+$ create 'weblog','stats'
+$
 ```
 
