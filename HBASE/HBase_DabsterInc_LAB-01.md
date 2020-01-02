@@ -14,3 +14,10 @@ put 'weblog', 'row2', 'stats:quaterly', 'test-quaterly-value'
 put 'weblog', 'row2', 'stats:yearly', 'test-yearly-value'
 put 'weblog', 'row3', 'stats:daily', 'test-daily-value'
 ```
+
+
+```
+create 'weblog','stats'
+
+```
+
