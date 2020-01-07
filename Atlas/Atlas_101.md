@@ -1,5 +1,34 @@
 # ATLAS
 
+##### Create users and groups on all nodes
+```
+# Add groups
+groupadd engineering_grp
+groupadd marketing_grp
+groupadd support_grp
+
+
+# Add Users
+for i in e1 e2 e3 e4 e5 e6 ; do adduser $i -G engineering_grp; done
+for i in m1 m2 m3 m4 ; do adduser $i -G marketing_grp; done
+for i in s1 s2 s3 ; do adduser $i -G support_grp; done
+
+# Verify
+cat /etc/group | grep _grp
+```
+
+#####  Create hdfs user directory for new users
+```
+su - hdfs
+
+for newuser in e1 e2 e3 e4 e5 e6 m1 m2 m3 m4 s1 s2 s3 
+do
+hdfs dfs -mkdir /user/$newuser ; hdfs dfs -chown $newuser /user/$newuser
+done
+
+hdfs dfs -ls /user
+```
+
 ### STEP 1: Create Hive Tables
 #### a) Download script & generate sample data file
 ```
