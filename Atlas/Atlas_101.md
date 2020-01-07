@@ -90,3 +90,5 @@ sudo -su hive hdfs dfs -put \
 #### a) Go to Ranger UI & login with admin/admin credentials
 #### b) Create hive policy for "employee" table and grant permission 
 
+#### Access Hive table with `m1` user
+# beeline -n m1 -p hive -e "select * from emp_sampledb.employee limit 50" -u $HIVE_CONNECTION_STRING
