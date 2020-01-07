@@ -46,6 +46,12 @@ sudo -su hive hdfs dfs -put \
 /var/tmp/script_datagenerator/employee_data.csv \
 /warehouse/tablespace/managed/hive/emp_sampledb.db/employee
 ```
+For HDP-2.6.x Version
+```
+sudo -su hive hdfs dfs -put \
+/var/tmp/script_datagenerator/employee_data.csv /apps/hive/warehouse/emp_sampledb.db/employee
+```
+
 #### d) Check employee table
 ```
 # beeline -n hive -p hive -e "select * from emp_sampledb.employee limit 50" -u $HIVE_CONNECTION_STRING
