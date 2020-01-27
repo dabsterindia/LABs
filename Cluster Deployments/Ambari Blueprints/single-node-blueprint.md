@@ -126,9 +126,8 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinu
 
 #### 2.3. hostmapping.json file contains host details of your cluster
 
-`#  vi hostmapping.json`
-
 ```
+cat > hostmapping.json << EOF 
 {
   "blueprint" : "single-node-dabster-inc",
   "host_groups" :[
@@ -136,15 +135,19 @@ sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinu
       "name" : "my_host_group", 
       "hosts" : [         
         {
-          "fqdn" : "hdp33.europe-west6-a.c.silent-base-227511.internal"
+          "fqdn" : "$(hostname -f)"
         }
       ]
     }
   ]
 }
-
+EOF
 ```
-_Don't forget to change the hostname :)_
+_Don't forget to verify whether hostname is correct in hostmapping.json file :)_
+
+`#  cat hostmapping.json`
+
+
 
 #### Step 2.4. Post the cluster to the Ambari Server to provision the cluster (Create HDP Cluster)
 
