@@ -4,7 +4,7 @@ ___Environment Details:___
 
 1 | 2
 ------------- | -------------
-Operating System | Centos - 6.x
+Operating System | Ubuntu
 Java Vesion | Java - OpenJDK 7
 Hadoop Version | Hadoop-1.2.1
 
@@ -13,11 +13,23 @@ Hadoop Version | Hadoop-1.2.1
 
 Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/Cluster%20Deployments/Hadoop_Prerequisites.md "Hadoop Prerequisites") article to setup the environment for hadoop deployement
 
+OR
+
+```
+ssh-keygen
+```
+```
+cat id_rsa.pub >> authorized_keys 
+```
+```
+ssh localhost
+```
+
 ## Step 2. Install JAVA
 ```
-sudo apt-get update
-
-sudo apt-get install openjdk-7-jdk -y
+sudo add-apt-repository ppa:openjdk-r/ppa  
+sudo apt-get update   
+sudo apt-get install openjdk-7-jdk 
 ```
 
 ## Step 3. Download & Configure Hadoop
@@ -41,7 +53,9 @@ https://archive.apache.org/dist/hadoop/core/
 #### 3.2. Setup ENVIRONMENT Variables for Hadoop
 Edit bashrc file and past below contents at the end. (one per line):
 
-`vi ~/.bashrc`
+```
+sudo vi ~/.bashrc
+````
 
 ```
 export HADOOP_PREFIX=/usr/local/hadoop
@@ -80,8 +94,9 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 
 #### 4.3 - Configure core-site.xml
 
-`vi /usr/local/hadoop/conf/core-site.xml`
-
+```
+vi /usr/local/hadoop/conf/core-site.xml
+```
 ```
 <property>
 <name>fs.default.name</name>
@@ -93,6 +108,7 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 <value>/usr/local/hadoop/data/hdfs/namenode</value>
 </property>
 ```
+Note: replace "node1.example.com" with your host fqdn
 
 #### 4.3 - Configure hdfs-site.xml
 
@@ -112,9 +128,10 @@ export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
 ```
 <property>
 <name>mapred.job.tracker</name>
-<value>master.example.com:9001</value>
+<value>node1.example.com:9001</value>
 </property>
 ```
+Note: replace "node1.example.com" with your host fqdn
 
 ## 5. Formate Namenode
 
