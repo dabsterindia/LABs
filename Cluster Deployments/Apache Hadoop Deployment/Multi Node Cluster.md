@@ -5,7 +5,7 @@ ___Environment Details:___
 1 | 2
 ------------- | -------------
 Operating System | Ubuntu 14.04
-Java Vesion | Java 8 Oracle
+Java Vesion | OpenJDK 8
 Hadoop Version | Hadoop-2.7.4
 
 ## Step 1. Preparing the Environment (Prerequisites)
@@ -21,52 +21,46 @@ Follow [Hadoop Prerequisites](https://github.com/dabsterindia/LABs/blob/master/C
 ## Step 2. Install dsh and Update machine.list file
 #### 2.1. Install dsh
 
-`sudo apt-get install –y dsh`
+```
+sudo apt-get update
+sudo apt-get install dsh -y
+```
 
-#### 2.2. Update machine.list file with all host entries. Comment out localhost.
+#### 2.2. Update machine.list file with all host entries. Comment out or remove localhost.
 
-`sudo vi /etc/dsh/machines.list`
+```
+sudo vi /etc/dsh/machines.list
+```
 
 ```
 #localhost
-nn
-snn
-dn1
-dn2
-dn3
+nn.us-central1-a.c.lithe-grid-257118.internal
+snn.us-central1-a.c.lithe-grid-257118.internal
+dn1.us-central1-a.c.lithe-grid-257118.internal
+dn2.us-central1-a.c.lithe-grid-257118.internal
+dn3.us-central1-a.c.lithe-grid-257118.internal
 ```
 
 #### 2.3. Verify dsh
 
 `dsh -a "hostname;echo "------------"`
 
-## Step 3. Install JAVA 8 on all nodes
-
-#### 3.1. To add oracle Java repositories, we need to download python-software-properties. Install it using below commands
-
-`dsh -a sudo apt-get install -y python-software-properties debconf-utils`
-
-#### 3.2. Add Oracle’s PPA(Personal Package Archive) to your list of sources so that Ubuntu knows where to check for the updates.
-
-`dsh -a sudo add-apt-repository -y ppa:webupd8team/java`
-
-#### 3.3. Update repos and install java 8
+## Step 3. Install JAVA 8 (openJDK) on all nodes
 
 ```
-dsh -a sudo apt-get update
-dsh -a ";echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections"
+dsh -a 'sudo apt update'
+dsh -a 'sudo apt install openjdk-8-jdk openjdk-8-jre openjdk-8-jdk-headless -y'
 ```
-
-`dsh -a sudo apt-get install -y oracle-java8-installer`
 
 ## Step 4. Install Hadoop:
 
 #### Install Hadoop on all nodes using dsh utility, untar it and move to /usr/local/hadoop
 
 ```
-dsh -a wget http://apache.mirrors.tds.net/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz
+dsh -a 'wget http://apache.mirrors.tds.net/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz'
 dsh -a sudo tar zxvf hadoop-2.*
-dsh -a sudo mv hadoop-2.7.4 /usr/local/hadoop
+dsh -a 'rm -rf hadoop-2.*.tar.gz'
+dsh -a 'sudo mv hadoop-2.*  /usr/local/hadoop'
 dsh -a sudo chown -R `whoami`:`whoami` /usr/local/hadoop
 ```
 
@@ -75,15 +69,28 @@ dsh -a sudo chown -R `whoami`:`whoami` /usr/local/hadoop
 
 #### 5.1. Edit bashrc file and past below contents at the end. (one per line)
 
-`vi ~/.bashrc`
+##### Verify Java location
+```
+ls -lrt /usr/lib/jvm/java-8-openjdk-amd64
+```
 
 ```
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+vi ~/.bashrc
+```
+
+```
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export HADOOP_HOME=/usr/local/hadoop
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$JAVA_HOME/bin
 export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 export YARN_HOME=$HADOOP_HOME
+```
+##### Copy bashrc file to all nodes
+```
+scp ~/.bashrc snn:~
+scp ~/.bashrc dn1:~
+scp ~/.bashrc dn2:~
+scp ~/.bashrc dn3:~
 ```
 
 #### 5.2. Execute bash to apply the changes
@@ -95,7 +102,9 @@ exec bash
 
 #### iii. Verify whether JAVA_HOME and HADOOP_HOME is copied to $PATH Variable
 
-`echo $PATH`
+```
+echo $PATH
+```
 
 ## Step 6. Configure Hadoop
 
@@ -111,8 +120,13 @@ dsh -a sudo chown `whoami`:`whoami` -R /var/log/hadoop
 #### 6.2. Configure hadoop-env.sh
 
 ```
-echo export JAVA_HOME=/usr/lib/jvm/java-8-oracle >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+echo export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 echo export HADOOP_LOG_DIR=/var/log/hadoop/ >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+```
+
+##### Verify
+```
+tail /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 ```
 
 #### 6.3. Configure core-site.xml
@@ -122,7 +136,7 @@ echo export HADOOP_LOG_DIR=/var/log/hadoop/ >> /usr/local/hadoop/etc/hadoop/hado
 ```
 <property>
 <name>fs.defaultFS</name>
-<value>hdfs://nn:9000</value>
+<value>hdfs://nn.us-central1-a.c.lithe-grid-257118.internal:9000</value>
 </property>
 ```
 
@@ -148,7 +162,7 @@ echo export HADOOP_LOG_DIR=/var/log/hadoop/ >> /usr/local/hadoop/etc/hadoop/hado
 
 <property>
 <name>dfs.namenode.secondary.http-address</name>
-<value>snn:50090</value>
+<value>snn.us-central1-a.c.lithe-grid-257118.internal:50090</value>
 </property>
 ```
 
@@ -164,7 +178,7 @@ echo export HADOOP_LOG_DIR=/var/log/hadoop/ >> /usr/local/hadoop/etc/hadoop/hado
 
 <property>
 <name>yarn.resourcemanager.hostname</name>
-<value>nn</value>
+<value>nn.us-central1-a.c.lithe-grid-257118.internal</value>
 </property>
 ```
 
@@ -188,27 +202,30 @@ Delete localhost entry from slaves file (or Comment it out) and update all slave
 `vi /usr/local/hadoop/etc/hadoop/slaves`
 
 ```
-#localhost
-dn1
-dn2
-dn3
+nn.us-central1-a.c.lithe-grid-257118.internal
+snn.us-central1-a.c.lithe-grid-257118.internal
+dn1.us-central1-a.c.lithe-grid-257118.internal
+dn2.us-central1-a.c.lithe-grid-257118.internal
+dn3.us-central1-a.c.lithe-grid-257118.internal
 ```
 
 #### 6.8. Copy updated hadoop configuration files to all other nodes
 
 ```
-cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml snn:`pwd`
-cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn1:`pwd`
-cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn2:`pwd`
-cd /usr/local/hadoop/etc/hadoop && scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml dn3:`pwd`
+cd /usr/local/hadoop/etc/hadoop
+scp hadoop-env.sh core-site.xml  hdfs-site.xml mapred-site.xml yarn-site.xml slaves  snn:`pwd`
+scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml slaves   dn1:`pwd`
+scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml slaves   dn2:`pwd`
+scp hadoop-env.sh core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml slaves   dn3:`pwd`
 ```
 
 ## Step 7. Format Namenode
 
-`hdfs namenode -format`
+```
+hdfs namenode -format
+```
 
 > Look for Message ___Namenode has been successfully formatted___
-
 > Verify data in namenode data directory
 
 NOTE : 
@@ -218,17 +235,25 @@ __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
 ## Step 8. Start Hadoop Services
 
 #### Start HDFS Services:
-`start-dfs.sh`
+```
+start-dfs.sh
+```
 
 #### Start YARN Services:
-`start-yarn.sh`
+```
+start-yarn.sh
+```
 
 #### Start MR-JobHistory Server:
-`$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver`
+```
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+```
 
 #### Check whether all services are up and running:
 
-`dsh -a "hostname;jps;echo "------------""`
+```
+dsh -a "hostname;jps;echo "------------""
+```
 
 ## Step 8. Verify WebUi
 
