@@ -278,7 +278,7 @@ DataNode | http://dn_host:port/ | 50075
 ### 9.2 Run Sample MR Jobs
 
 #### i) Pi
-hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar pi 10 100000
+`hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar pi 10 100000`
 
 #### ii) Word Count
 ##### Create File on local
