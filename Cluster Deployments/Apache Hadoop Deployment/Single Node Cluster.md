@@ -146,11 +146,11 @@ __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
 
 ## 6. Start Services
 
-#### 6.1 - Start HDFS Services:
+### 6.1 - Start HDFS Services:
 
 `start-dfs.sh`
 
-#### 6.2 - Start MR services
+### 6.2 - Start MR services
 
 `start-mapred.sh`
 
@@ -170,41 +170,41 @@ __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
 
 ## 9. Test HDFS
 
-#### i) Run “ls” on hdfs
+### i) Run “ls” on hdfs
 
 `hadoop fs -ls /`
 
-#### ii) Create a directory
+### ii) Create a directory
 
 `hadoop fs -mkdir /test`
 
-#### iii) Run hdfs report to get the detailed information about the Hadoop filesystem
+### iii) Run hdfs report to get the detailed information about the Hadoop filesystem
 
 `hadoop dfsadmin -report`
 
-#### iv) Check all Hadoop filesystem commands
+### iv) Check all Hadoop filesystem commands
 
 `hadoop fs`
 
-#### v) Check all hdfs admin commands
+### v) Check all hdfs admin commands
 `hadoop dfsadmin`
 
 
 ## 10. TEST MapReduce
 ### Run Sample MapReduce Jobs
 
-#### i) PI
+### i) PI
 
 `hadoop jar /usr/local/hadoop/hadoop-examples-*.jar pi 10 100000` 
 
 
-#### ii) Word Count
-##### Create File on local
+### ii) Word Count
+### Create File on local
 
 `vi /tmp/word_example.txt`
 
 
-#####  Add some random text
+###  Add some random text
 ```
 The Apache Hadoop software library is a framework that allows for the distributed processing of
 large data sets across clusters of computers using simple programming models. It is designed to
@@ -224,24 +224,24 @@ ability to view MapReduce, Pig and Hive applications visually along with feature
 their performance characteristics in a user-friendly manner
 ```
 
-##### Create dir on hdfs and Load example file
+### Create dir on hdfs and Load example file
 ```
 hadoop fs -mkdir –p /user/hdfs/sample_jobs/input
 hadoop fs -put /tmp/word_example.txt /user/hdfs/sample_jobs/input/
 ```
 
-##### Verify whether file is uploaded
+### Verify whether file is uploaded
 
 `hadoop fs -cat /user/hdfs/sample_jobs/input/word*`
 
-##### Run word count job
+### Run word count job
 
 `hadoop jar /usr/local/hadoop/hadoop-examples-*.jar wordcount /user/hdfs/sample_jobs/input/
 /user/hdfs/sample_jobs/output`
 
 ___You can monitor the status of this mapreduce jobs on JobTracker Web Interface___ (http://jt_host:port )
 
-##### Check output (CLI):
+### Check output (CLI):
 
 ```
 hadoop fs -ls /user/hdfs/sample_jobs/output/
@@ -249,7 +249,7 @@ hadoop fs -cat /user/hdfs/sample_jobs/output/part-*
 ```
 
 
-##### Check output (Namenode WebUI)
+### Check output (Namenode WebUI)
 
 a. Open Namenode WebUI http://nn_host:port/
 
