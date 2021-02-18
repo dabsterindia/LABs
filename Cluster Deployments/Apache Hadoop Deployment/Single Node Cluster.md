@@ -148,15 +148,15 @@ __DO NOT FORMATE THE NAMENODE MULTIPLE TIME.__
 
 #### 6.1 - Start HDFS Services:
 
-```start-dfs.sh```
+`start-dfs.sh`
 
 #### 6.2 - Start MR services
 
-```start-mapred.sh```
+`start-mapred.sh`
 
 ## 7. Check what all services are running
 
-```jps```
+`jps`
 
 ## 8. Verify through WebUI
 
