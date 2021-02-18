@@ -68,58 +68,6 @@ HWX.COM = {
   }
 ```
 
-__EXAMPLE krb5.com:__
-```
-[libdefaults]
-  renew_lifetime = 7d
-  forwardable = true
-  default_realm = {{realm}}
-  ticket_lifetime = 24h
-  dns_lookup_realm = false
-  dns_lookup_kdc = false
-  default_ccache_name = /tmp/krb5cc_%{uid}
-  #default_tgs_enctypes = {{encryption_types}}
-  #default_tkt_enctypes = {{encryption_types}}
-  permitted_enctypes = aes256-cts-hmac-sha1-96 aes128-cts-hmac-sha1-96 arcfour-hmac-md5 des-cbc-crc des-cbc-md5
-
-{% if domains %}
-[domain_realm]
-{%- for domain in domains.split(',') %}
-  {{domain|trim()}} = {{realm}}
-{%- endfor %}
-{% endif %}
-[logging]
-  default = FILE:/var/log/krb5kdc.log
-  admin_server = FILE:/var/log/kadmind.log
-  kdc = FILE:/var/log/krb5kdc.log
-
-[realms]
-  {{realm}} = {
-{%- if master_kdc %}
-    master_kdc = {{master_kdc|trim()}}
-{%- endif -%}
-{%- if kdc_hosts > 0 -%}
-{%- set kdc_host_list = kdc_hosts.split(',')  -%}
-{%- if kdc_host_list and kdc_host_list|length > 0 %}
-    admin_server = {{admin_server_host|default(kdc_host_list[0]|trim(), True)}}
-{%- if kdc_host_list -%}
-{%- if master_kdc and (master_kdc not in kdc_host_list) %}
-    kdc = {{master_kdc|trim()}}
-{%- endif -%}
-{% for kdc_host in kdc_host_list %}
-    kdc = {{kdc_host|trim()}}
-{%- endfor -%}
-{% endif %}
-{%- endif %}
-{%- endif %}
-  }
-HWX.COM = {
-  kdc = adserver.asia-south1-c.c.x-plateau-236613.internal
-  admin_server = adserver.asia-south1-c.c.x-plateau-236613.internal
-  default_domain = adserver.asia-south1-c.c.x-plateau-236613.internal
-  }
-```
-
  #### 3.2 : Configure _auth_to_local_ RULE's to convert AD principal to a username
 
 Goto Ambari > HDFS > Configs > Advanced
